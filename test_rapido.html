@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rápido Licencia Clase B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+   
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-2xl relative">
+        <div id="start-over-button-container" class="text-right mb-4">
+             <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out text-sm inline-block">
+                Volver al Inicio
+            </a>
+        </div>
+
+        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Test Rápido Licencia Clase B</h1>
+
+        <div id="quiz-container">
+            <div class="mb-4 text-sm text-gray-600 flex justify-between items-center">
+                <span id="question-counter">Pregunta 1 de X</span> <div>
+                    <span id="correct-count" class="mr-2">Correctas: 0</span>
+                    <span id="incorrect-count">Incorrectas: 0</span>
+                </div>
+            </div>
+
+            <div id="question-area" class="mb-6">
+                <p id="question-text" class="text-lg text-gray-700 font-medium"></p>
+                 <p id="multi-answer-indicator" class="text-sm text-blue-600 mt-2 hidden">Selecciona 2 opciones.</p>
+            </div>
+
+            <div id="options-area" class="space-y-3">
+                </div>
+
+            <div id="feedback-area" class="mt-4 text-center font-medium h-6">
+                </div>
+
+            <div class="mt-6 text-center space-x-4">
+                 <button id="check-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
+                    Revisar
+                </button>
+                <button id="next-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
+                    Siguiente
+                </button>
+            </div>
+        </div>
+
+        <div id="results-container" class="hidden text-center">
+             <div id="dynamic-results-content">
+                 </div>
+            <button id="restart-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out inline-block mt-4">
+                Reintentar Test Rápido
+            </button>
+             <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out inline-block mt-4 ml-4">
+                Volver al Inicio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- Base de Datos de Preguntas ---
+        const allQuestions = [
+            {
+                question: "1.- Su vehículo se desvia hacia un lado cuando usted frena. Usted deberia:",
+                options: [
+                    "a) Cambiar los neumáticos de un lado hacia el otro y viceversa.",
+                    "b) Bombear el pedal al frenar.",
+                    "c) Usar su freno de mano.",
+                    "d) Consultar con su mecánico lo antes posible."
+                ],
+                correctAnswer: "d"
+            },
+            {
+                question: "2.- Su vehículo se desvía hacia un lado cuando usted frena. ¿Cuál es la falla más probable?",
+                options: [
+                    "a) Un bajo nivel del liquido de frenos.",
+                    "b) Su freno de mano está todavía puesto.",
+                    "c) Frenos mal ajustados.",
+                    "d) Neumáticos con presión de aire inadecuada."
+                ],
+                correctAnswer: "c"
+            },
+            {
+                question: "3.- Mientras conduce usted siente un fuerte olor a gasolina. ¿Qué debería hacer usted?",
+                options: [
+                    "a) No preocuparse, ya que sólo son los gases de escape.",
+                    "b) Continuar a una velocidad reducida.",
+                    "c) Continuar porque sabe que se detendrá algunos kilómetros más allá.",
+                    "d) Detenerse e investigar el problema."
+                ],
+                correctAnswer: "d"
+            },
+            {
+                question: "4.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero?",
+                options: [
+                    "a) Cambiarse de pista y frenar a fondo.",
+                    "b) Frenar suavemente o dejar que el vehículo siga hasta detenerse.",
+                    "c) Sostener firmemente el volante manteniendo la trayectoria.",
+                    "d) Frenar rápida y firmemente.",
+                    "e) Sostener el volante con una mano advirtiendo con la otra a los demás que usted se detendrá."
+                ],
+                correctAnswer: ["b", "c"] // Array para respuestas múltiples correctas
+            }
+            // Puedes agregar más preguntas aquí
+        ];
+
+        // --- Variables del Estado del Test Rápido ---
+        let currentQuizQuestions = []; // Array para las preguntas de la sesión actual
+        let currentQuestionIndex = 0;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let selectedOptionButton = null; // Para preguntas de respuesta única
+        let selectedOptions = [];      // Para preguntas de respuesta múltiple
+
+        // --- Elementos del DOM ---
+        const questionCounterEl = document.getElementById('question-counter');
+        const correctCountEl = document.getElementById('correct-count');
+        const incorrectCountEl = document.getElementById('incorrect-count');
+        const questionTextEl = document.getElementById('question-text');
+        const multiAnswerIndicatorEl = document.getElementById('multi-answer-indicator');
+        const optionsAreaEl = document.getElementById('options-area');
+        const feedbackAreaEl = document.getElementById('feedback-area');
+        const checkButton = document.getElementById('check-button');
+        const nextButton = document.getElementById('next-button');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const restartButton = document.getElementById('restart-button');
+        const dynamicResultsContentEl = document.getElementById('dynamic-results-content');
+
+        // --- Funciones ---
+
+        /**
+         * Mezcla un array en el lugar (Algoritmo Fisher-Yates).
+         * @param {Array} array - El array a mezclar.
+         */
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Intercambio con desestructuración ES6
+            }
+        }
+
+        /**
+         * Inicia una nueva sesión de test.
+         * Selecciona un subconjunto aleatorio de preguntas de la lista principal.
+         */
+        function startNewTest() {
+            // --- PARÁMETROS PARA MODIFICAR ---
+            // Cambia este número para seleccionar una cantidad diferente de preguntas aleatorias
+            const numberOfQuestionsToShow = 2;
+            // ---------------------------------
+
+            // 1. Crea una copia de todas las preguntas para no modificar el array original
+            let availableQuestions = [...allQuestions];
+
+            // 2. Mezcla el array copiado
+            shuffleArray(availableQuestions);
+
+            // 3. Selecciona el número deseado de preguntas del array mezclado
+            // Asegura no pedir más preguntas de las disponibles
+            currentQuizQuestions = availableQuestions.slice(0, Math.min(numberOfQuestionsToShow, availableQuestions.length));
+
+            // Reinicia el estado del test
+            currentQuestionIndex = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            correctCountEl.textContent = `Correctas: ${correctCount}`;
+            incorrectCountEl.textContent = `Incorrectas: ${incorrectCount}`;
+            selectedOptionButton = null;
+            selectedOptions = []; // Limpia el array de selecciones múltiples
+
+            // Reinicia la UI
+            resultsContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            checkButton.classList.add('invisible');
+            nextButton.classList.add('invisible');
+
+            // Carga la primera pregunta si se seleccionaron preguntas
+            if (currentQuizQuestions.length > 0) {
+                loadQuestion();
+            } else {
+                // Maneja el caso donde no hay preguntas disponibles o seleccionadas
+                quizContainer.innerHTML = '<p class="text-center text-red-500">No hay preguntas disponibles para mostrar.</p>';
+            }
+        }
+
+
+        /**
+         * Carga la pregunta actual y sus opciones en la UI.
+         */
+        function loadQuestion() {
+            // Reinicia selecciones de la pregunta anterior
+            selectedOptionButton = null;
+            selectedOptions = [];
+
+            // Obtiene el objeto de la pregunta actual
+            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
+
+            // Actualiza texto de la pregunta y contador
+            questionTextEl.textContent = currentQuestion.question;
+            questionCounterEl.textContent = `Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}`;
+
+            // Muestra/oculta indicador de respuesta múltiple
+            multiAnswerIndicatorEl.classList.toggle('hidden', !isMultiAnswer);
+
+            // Limpia opciones y feedback anteriores
+            optionsAreaEl.innerHTML = '';
+            feedbackAreaEl.textContent = '';
+            // Usa clases de Tailwind para el feedback en lugar de .correct/.incorrect
+            feedbackAreaEl.className = 'mt-4 text-center font-medium h-6'; // Reinicia clases de feedback
+
+            // Oculta botones de acción inicialmente
+            checkButton.classList.add('invisible');
+            nextButton.classList.add('invisible');
+
+            // Crea y añade botones para cada opción
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                // Extrae la letra de la opción (a, b, c, d, e)
+                const optionLetter = option.match(/^([a-e])\)/i)?.[1].toLowerCase();
+                button.textContent = option;
+                // Aplica clases Tailwind para estilo base y hover
+                button.classList.add('block', 'w-full', 'text-left', 'p-3', 'border', 'border-gray-300', 'rounded-lg', 'hover:bg-gray-100', 'transition', 'duration-150', 'ease-in-out');
+                // Almacena la letra de la opción en un data attribute para fácil verificación
+                button.dataset.option = optionLetter;
+                // Asigna la función manejadora de click
+                button.onclick = handleOptionSelect;
+                optionsAreaEl.appendChild(button);
+            });
+        }
+
+        /**
+         * Maneja el evento click en un botón de opción.
+         * Gestiona selecciones únicas y múltiples.
+         * @param {Event} event - El objeto del evento click.
+         */
+        function handleOptionSelect(event) {
+            const clickedButton = event.target;
+            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
+
+            // Remover clase 'selected' de todos los botones antes de aplicar la nueva selección
+            optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                // Si no es multirespuesta, o si es multirespuesta pero no es el botón clickeado actualmente
+                 if (!isMultiAnswer || (isMultiAnswer && !selectedOptions.includes(btn) && btn !== clickedButton)) {
+                     btn.classList.remove('selected');
+                 }
+            });
+
+
+            if (isMultiAnswer) {
+                // Lógica para preguntas de respuesta múltiple
+                const index = selectedOptions.indexOf(clickedButton);
+                if (index > -1) {
+                    // Opción ya seleccionada, deselecciónala
+                    selectedOptions.splice(index, 1);
+                    clickedButton.classList.remove('selected'); // Remueve estilo de selección
+                } else if (selectedOptions.length < 2) {
+                    // Opción no seleccionada, y menos de 2 seleccionadas, selecciónala
+                    selectedOptions.push(clickedButton);
+                    clickedButton.classList.add('selected'); // Añade estilo de selección
+                }
+                // Muestra botón "Revisar" solo cuando se seleccionan exactamente 2 opciones
+                checkButton.classList.toggle('invisible', selectedOptions.length !== 2);
+            } else {
+                // Lógica para preguntas de respuesta única
+                // Deselecciona el botón previamente seleccionado, si existe
+                if (selectedOptionButton) {
+                    selectedOptionButton.classList.remove('selected');
+                }
+                // Selecciona el nuevo botón
+                selectedOptionButton = clickedButton;
+                selectedOptionButton.classList.add('selected'); // Añade estilo de selección
+                // Muestra el botón "Revisar" tan pronto se selecciona una opción
+                checkButton.classList.remove('invisible');
+            }
+        }
+
+        /**
+         * Verifica la(s) respuesta(s) seleccionada(s) contra la(s) correcta(s).
+         * Proporciona feedback visual y actualiza puntajes.
+         */
+        function checkAnswer() {
+            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
+            let isCorrect = false;
+
+            // Deshabilita todos los botones de opción después de verificar
+            optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                btn.disabled = true;
+                // Mantiene la clase 'selected' por ahora para identificar elecciones del usuario
+            });
+
+            // --- Determina si la respuesta es correcta ---
+            if (isMultiAnswer) {
+                // Obtiene las letras de las opciones seleccionadas y las ordena
+                const selectedAnswers = selectedOptions.map(btn => btn.dataset.option).sort();
+                // Obtiene las respuestas correctas, clona y ordena para comparar
+                const correctAnswers = [...currentQuestion.correctAnswer].sort(); // Clona usando spread syntax
+                // Compara los arrays ordenados (como strings por simplicidad)
+                if (JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers)) {
+                    isCorrect = true;
+                }
+            } else {
+                // Verificación de respuesta única
+                const selectedAnswerLetter = selectedOptionButton?.dataset.option;
+                if (selectedAnswerLetter === currentQuestion.correctAnswer.toLowerCase()) {
+                    isCorrect = true;
+                }
+            }
+
+            // --- Actualiza contadores y mensaje de feedback ---
+            if (isCorrect) {
+                correctCount++;
+                feedbackAreaEl.textContent = '¡Correcto!';
+                feedbackAreaEl.classList.add('text-green-600'); // Usa clase Tailwind para color
+                feedbackAreaEl.classList.remove('text-red-600');
+            } else {
+                incorrectCount++;
+                // Formatea la(s) respuesta(s) correcta(s) para mostrar
+                const correctText = Array.isArray(currentQuestion.correctAnswer)
+                                    ? currentQuestion.correctAnswer.join(' y ').toUpperCase()
+                                    : currentQuestion.correctAnswer.toUpperCase();
+                feedbackAreaEl.textContent = `Incorrecto. Respuesta(s) correcta(s): ${correctText}`;
+                feedbackAreaEl.classList.add('text-red-600'); // Usa clase Tailwind para color
+                 feedbackAreaEl.classList.remove('text-green-600');
+            }
+
+            // Actualiza la visualización del puntaje
+            correctCountEl.textContent = `Correctas: ${correctCount}`;
+            incorrectCountEl.textContent = `Incorrectas: ${incorrectCount}`;
+
+            // --- Resalta opciones correctas e incorrectas visualmente usando clases CSS ---
+             const correctAnswersArray = isMultiAnswer ? currentQuestion.correctAnswer : [currentQuestion.correctAnswer.toLowerCase()];
+            optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                const optionLetter = btn.dataset.option;
+                const wasSelectedByUser = isMultiAnswer ? selectedOptions.includes(btn) : btn === selectedOptionButton;
+                const isCorrectOption = correctAnswersArray.includes(optionLetter);
+
+                // Remueve el estilo de selección base primero
+                btn.classList.remove('selected');
+
+                if (isCorrectOption) {
+                    // Es una opción correcta, márcala con la clase 'correct'
+                    btn.classList.add('correct');
+                     if (wasSelectedByUser) {
+                         // Usuario seleccionó una opción correcta - añade clase para checkmark (opcional)
+                         btn.classList.add('selected-correct');
+                    }
+                } else if (wasSelectedByUser) {
+                    // Usuario seleccionó una opción incorrecta, márcala con la clase 'incorrect'
+                    btn.classList.add('incorrect');
+                }
+                // Otras opciones no seleccionadas e incorrectas permanecen con estilo por defecto (Tailwind)
+            });
+
+
+            // Oculta botón "Revisar" y muestra botón "Siguiente"
+            checkButton.classList.add('invisible');
+            nextButton.classList.remove('invisible');
+        }
+
+
+        /**
+         * Avanza a la siguiente pregunta o muestra los resultados finales.
+         */
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                 // Rehabilita botones y limpia estilos de feedback para la siguiente pregunta
+                 optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                     btn.disabled = false;
+                     btn.classList.remove('correct', 'incorrect', 'selected-correct'); // Limpia estilos de feedback
+                 });
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        /**
+         * Muestra los resultados finales del test.
+         */
+        function showResults() {
+            // Genera el contenido HTML para la visualización de resultados
+            const resultsContent = `
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Test Rápido Completado!</h2>
+                <p class="text-xl text-gray-700 mb-2">Resultados (${currentQuizQuestions.length} preguntas):</p>
+                <p class="text-lg text-green-600 font-medium">Respuestas Correctas: ${correctCount}</p>
+                <p class="text-lg text-red-600 font-medium mb-6">Respuestas Incorrectas: ${incorrectCount}</p>
+            `;
+            // Establece el innerHTML del contenedor de resultados
+            dynamicResultsContentEl.innerHTML = resultsContent;
+            // Oculta el área del test y muestra el área de resultados
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+        }
+
+        // --- Event Listeners ---
+        checkButton.addEventListener('click', checkAnswer);
+        nextButton.addEventListener('click', nextQuestion);
+        restartButton.addEventListener('click', startNewTest); // Botón de reinicio en pantalla de resultados
+
+        // --- Inicialización ---
+        // Inicia el test automáticamente cuando la página carga
+        window.onload = startNewTest;
+
+    </script>
+</body>
+</html>
