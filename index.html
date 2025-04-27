@@ -11,18 +11,31 @@
             font-family: 'Inter', sans-serif; /* Fuente Inter */
         }
         /* Estilo para resaltar respuestas */
+        /* Asegurar prioridad de estilos */
         .correct {
-            background-color: #22c55e !important; /* Verde */
-            color: white !important;
+            background-color: #22c55e !important;
             border-color: #16a34a !important;
         }
+
         .incorrect {
-            background-color: #ef4444 !important; /* Rojo */
-            color: white !important;
+            background-color: #ef4444 !important;
             border-color: #dc2626 !important;
         }
+
+        .selected-correct::after {
+            content: "✓";
+            margin-left: 10px;
+            font-weight: bold;
+            color: white;
+        }
+        /* Estilo para la opción seleccionada antes de revisar */
+        .selected {
+            border-color: #3b82f6 !important; /* Azul */
+            background-color: #eff6ff !important; /* Azul claro */
+            border-width: 2px;
+        }
         /* Estilo para botones deshabilitados */
-        button:disabled {
+        button:disabled:not(.correct):not(.incorrect) { /* No aplicar opacidad a los botones ya coloreados */
             opacity: 0.7;
             cursor: not-allowed;
         }
@@ -34,6 +47,26 @@
             text-align: right; /* Alinea el botón a la derecha */
             margin-bottom: 1rem; /* Espacio debajo del botón */
         }
+        /* Clases para visibilidad */
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block; /* O inline-block, flex, etc., según el elemento */
+        }
+        .invisible {
+            visibility: hidden;
+        }
+        /* Agregar estos estilos */
+        #start-screen {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,8 +81,20 @@
         </div>
 
         <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Cuestionario Licencia Clase B (Aleatorio)</h1>
-
-        <div id="quiz-container">
+        <div id="start-screen" class="text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Instrucciones del Examen</h2>
+            <div class="bg-gray-50 p-6 rounded-lg mb-8 text-left space-y-4">
+                <p class="text-gray-700">• El examen consta de 10 preguntas:</p>
+                <p class="text-gray-700">• 9 preguntas valen <span class="font-bold">1 punto</span> cada una</p>
+                <p class="text-gray-700">• 1 pregunta vale <span class="font-bold">2 puntos</span></p>
+                <p class="text-gray-700">• Puntaje máximo posible: <span class="font-bold">11 puntos</span></p>
+                <p class="text-gray-700">• Para aprobar se requiere: <span class="font-bold text-green-600">Mínimo 9 puntos</span></p>
+            </div>
+            <button id="start-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-200 ease-in-out text-lg">
+                Comenzar Examen
+            </button>
+        </div>
+        <div id="quiz-container" class="hidden">
             <div class="mb-4 text-sm text-gray-600 flex justify-between items-center">
                 <span id="question-counter">Pregunta 1 de 10</span>
                 <span id="score">Puntaje: 0</span>
@@ -65,16 +110,20 @@
             <div id="feedback-area" class="mt-4 text-center font-medium h-6">
                 </div>
 
-            <div class="mt-6 text-center">
+            <div class="mt-6 text-center space-x-4">
+                 <button id="check-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
+                    Revisar
+                </button>
                 <button id="next-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
-                    Siguiente Pregunta
+                    Siguiente
                 </button>
             </div>
         </div>
 
         <div id="results-container" class="hidden text-center">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Cuestionario Completado!</h2>
-            <p class="text-xl text-gray-700 mb-6">Tu puntaje final es: <span id="final-score" class="font-bold"></span> de 10</p>
+             <!-- Eliminar el elemento final-score duplicado -->
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Cuestionario Completado!</h2>
+    <div id="dynamic-results-content"></div> <!-- Contenedor para contenido dinámico -->
             <button id="restart-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out">
                 Intentar con otras 10 preguntas
             </button>
@@ -84,6 +133,7 @@
     <script>
         // --- Base de Datos Completa de Preguntas ---
         const allQuestions = [
+             // ... (Las 20 preguntas van aquí, igual que antes) ...
              {
                 question: "1.- Su vehículo se desvia hacia un lado cuando usted frena. Usted deberia:",
                 options: [
@@ -92,7 +142,8 @@
                     "c) Usar su freno de mano.",
                     "d) Consultar con su mecánico lo antes posible."
                 ],
-                correctAnswer: "d"
+                correctAnswer: "d",
+                points: 1
             },
             {
                 question: "2.- Su vehículo se desvía hacia un lado cuando usted frena. ¿Cuál es la falla más probable?",
@@ -102,7 +153,8 @@
                     "c) Frenos mal ajustados.",
                     "d) Neumáticos con presión de aire inadecuada."
                 ],
-                correctAnswer: "c"
+                correctAnswer: "c",
+                points: 1
             },
             {
                 question: "3.- Mientras conduce usted siente un fuerte olor a gasolina. ¿Qué debería hacer usted?",
@@ -112,7 +164,8 @@
                     "c) Continuar porque sabe que se detendrá algunos kilómetros más allá.",
                     "d) Detenerse e investigar el problema."
                 ],
-                correctAnswer: "d"
+                correctAnswer: "d",
+                points: 1
             },
             {
                 question: "4.- ¿Cómo puede prevenir usted el riesgo de incendio de su vehiculo?",
@@ -122,7 +175,8 @@
                     "c) Usando gasolina sin plomo.",
                     "d) Revisando su vehiculo ante cualquier olor a gasolina extraño."
                 ],
-                correctAnswer: "d"
+                correctAnswer: "d",
+                points: 1
             },
             {
                 question: "5.- ¿Por qué es importante usar zapatos apropiados cuando conduce?",
@@ -132,7 +186,8 @@
                     "c) Para poder efectuar los cambios de marcha más rápidamente.",
                     "d) Para poder caminar sin problemas en el caso que necesite solicitar ayuda."
                 ],
-                correctAnswer: "a"
+                correctAnswer: "a",
+                points: 1
             },
             {
                 question: "6.- En un automóvil, ¿cuál de los siguientes elementos reduce el riesgo de lesiones de cuello en una colisión?",
@@ -142,7 +197,8 @@
                     "c) Una columna de dirección colapsable.",
                     "d) Un asiento con apoya-cabeza ajustado en forma apropiada."
                 ],
-                correctAnswer: "d"
+                correctAnswer: "d",
+                points: 1
             },
             {
                 question: "7.- ¿Qué significa esta luz de advertencia en el panel de instrumentos? (Asumiendo luces de advertencia de peligro)",
@@ -152,7 +208,8 @@
                     "c) Luces altas.",
                     "d) Freno de mano puesto."
                 ],
-                correctAnswer: "b"
+                correctAnswer: "b",
+                points: 1
             },
             {
                 question: "8.- Es esencial que la presión de los neumáticos sea chequeada regularmente. ¿Cuándo se debe hacer esto?",
@@ -162,7 +219,8 @@
                     "c) Cuando los neumáticos están frios.",
                     "d) Cuando los neumáticos están calientes."
                 ],
-                correctAnswer: "c"
+                correctAnswer: "c",
+                points: 1
             },
             {
                 question: "9.- La presión de los neumáticos debe revisarse:",
@@ -171,7 +229,8 @@
                     "b) Cuando los neumáticos están calientes.",
                     "c) En cualquier momento, porque da igual que los neumáticos estén fríos o calientes."
                 ],
-                correctAnswer: "a"
+                correctAnswer: "a",
+                points: 1
             },
             {
                 question: "10.- ¿Cuál de estos líquidos, en el caso de estar en un nivel bajo, podría causar un accidente?",
@@ -181,7 +240,8 @@
                     "c) El agua de la batería.",
                     "d) El liquido refrigerante."
                 ],
-                correctAnswer: "a"
+                correctAnswer: "a",
+                points: 1
             },
             {
                 question: "11.- Frente a una situación normal, ¿cuál es la forma más segura de frenar?",
@@ -191,7 +251,8 @@
                     "c) Poniendo la palanca de cambio en neutro, frenando fuerte y luego soltando el freno justo antes de detenerse.",
                     "d) Frenando suavemente, luego un poco más fuerte cuando comienza a detenerse y después aflojando de a poco el freno antes de detenerse."
                  ],
-                 correctAnswer: "d"
+                 correctAnswer: "d",
+                 points: 1
             },
             {
                  question: "12.- ¿Cuándo usaria usted las luces intermitentes de advertencia de peligro?",
@@ -201,7 +262,8 @@
                     "c) Cuando estacione junto a una cuneta en la que hay linea amarilla pintada.",
                     "d) Cuando sus señalizadores de viraje no estén funcionando."
                  ],
-                 correctAnswer: "a"
+                 correctAnswer: "a",
+                 points: 1
             },
             {
                  question: "13.- Las luces de advertencia de peligro deberían ser usadas:",
@@ -211,7 +273,8 @@
                     "c) Para advertir a quienes vienen detrás suyo que usted pretende virar.",
                     "d) Para advertir a los demás que usted tiene prisa."
                  ],
-                 correctAnswer: "b"
+                 correctAnswer: "b",
+                 points: 1
             },
             {
                  question: "14.- ¿Cuándo usaría usted las luces de advertencia de peligro de su vehículo?",
@@ -221,7 +284,8 @@
                     "c) Cuando esté retrocediendo en una calle de poco tránsito.",
                     "d) Cuando esté en pana y obstaculizando el tránsito."
                  ],
-                 correctAnswer: "d"
+                 correctAnswer: "d",
+                 points: 1
             },
             {
                  question: "15.- Usted está probando la suspensión de su vehículo cuando nota que éste rebota u oscila al cargarlo en un extremo lateral frontal. ¿Qué significa esto?",
@@ -231,7 +295,8 @@
                     "c) Volante de dirección no centrado.",
                     "d) Amortiguadores gastados."
                  ],
-                 correctAnswer: "d"
+                 correctAnswer: "d",
+                 points: 1
             },
             {
                  question: "16.- ¿Por qué los neumáticos deben mantenerse a la presión indicada por el fabricante?",
@@ -241,7 +306,8 @@
                     "c) Para ayudar a evitar que el automóvil se roncee.",
                     "d) Para evitar que el automóvil se incline hacia un lado."
                  ],
-                 correctAnswer: "c"
+                 correctAnswer: "c",
+                 points: 1
             },
             {
                  question: "17.- ¿A qué se debe un alto consumo de combustible?",
@@ -251,7 +317,8 @@
                     "c) Frecuentes frenadas y aceleraciones.",
                     "d) Conducción en marchas altas."
                  ],
-                 correctAnswer: "c"
+                 correctAnswer: "c",
+                 points: 1
             },
             {
                  question: "18.- La profundidad de los surcos de los neumáticos de un automóvil no debería ser inferior a ...",
@@ -261,45 +328,53 @@
                     "c) 1.6 mm",
                     "d) 1.0 mm"
                  ],
-                 correctAnswer: "c"
+                 correctAnswer: "c",
+                 points: 1
             },
-            {
-                 question: "19.- Uno de sus neumáticos traseros se revienta mientras usted conduce. ¿Cuáles 2 cosas debe hacer usted?",
-                 options: [
-                    "a) Poner marcha atrás para detener el vehículo.",
-                    "b) Hacer una señal de detención con el brazo y disminuir la velocidad.",
-                    "c) Detenerse lentamente al costado de la via.",
-                    "d) Detener el vehículo frenando lo más fuerte que pueda.",
-                    "e) Girar el volante hacia el mismo lado hacia el cual se desvía la cola del vehículo."
-                 ],
-                 correctAnswer: "c" // Nota: La pregunta original pide 2 acciones. Se mantiene una para el formato quiz.
-            },
-            {
-                 question: "20.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero?",
-                 options: [
-                    "a) Cambiarse de pista y frenar a fondo.",
-                    "b) Frenar suavemente o dejar que el vehículo siga hasta detenerse.",
-                    "c) Sostener firmemente el volante manteniendo la trayectoria.",
-                    "d) Frenar rápida y firmemente.",
-                    "e) Sostener el volante con una mano advirtiendo con la otra a los demás que usted se detendrá."
-                 ],
-                 correctAnswer: "c" // Nota: La pregunta original pide 2 acciones. Se mantiene una para el formato quiz.
-            }
+            // En el array allQuestions, actualizar las preguntas 19 y 20:
+{
+    question: "19.- Uno de sus neumáticos traseros se revienta mientras usted conduce. ¿Cuáles 2 cosas debe hacer usted?",
+    options: [
+        "a) Poner marcha atrás para detener el vehículo.",
+        "b) Hacer una señal de detención con el brazo y disminuir la velocidad.",
+        "c) Detenerse lentamente al costado de la via.",
+        "d) Detener el vehículo frenando lo más fuerte que pueda.",
+        "e) Girar el volante hacia el mismo lado hacia el cual se desvía la cola del vehículo."
+    ],
+    correctAnswer: ["c", "e"] ,
+    points: 2
+},
+{
+    question: "20.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero?",
+    options: [
+        "a) Cambiarse de pista y frenar a fondo.",
+        "b) Frenar suavemente o dejar que el vehículo siga hasta detenerse.",
+        "c) Sostener firmemente el volante manteniendo la trayectoria.",
+        "d) Frenar rápida y firmemente.",
+        "e) Sostener el volante con una mano advirtiendo con la otra a los demás que usted se detendrá."
+    ],
+    correctAnswer: ["b", "d"] ,
+    points: 2
+}
         ];
 
         // --- Variables del Estado del Quiz ---
         let currentQuizQuestions = []; // Preguntas seleccionadas para esta ronda
         let currentQuestionIndex = 0;
         let score = 0;
-        let answerSelected = false; // Para evitar múltiples selecciones
+        let selectedOptionButton = null; // Guarda el botón de opción seleccionado
+        let selectedOptions = []; // Array para guardar múltiples selecciones
 
         // --- Elementos del DOM ---
+        const startScreen = document.getElementById('start-screen'); // ← Añadir esta línea
+        const startButton = document.getElementById('start-button'); // ← agrega esta
         const questionCounterEl = document.getElementById('question-counter');
         const scoreEl = document.getElementById('score');
         const questionTextEl = document.getElementById('question-text');
         const optionsAreaEl = document.getElementById('options-area');
         const feedbackAreaEl = document.getElementById('feedback-area');
-        const nextButton = document.getElementById('next-button');
+        const checkButton = document.getElementById('check-button'); // Nuevo botón Revisar
+        const nextButton = document.getElementById('next-button'); // Botón Siguiente
         const quizContainer = document.getElementById('quiz-container');
         const resultsContainer = document.getElementById('results-container');
         const finalScoreEl = document.getElementById('final-score');
@@ -312,97 +387,148 @@
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
+                [array[i], array[j]] = [array[j], array[i]];
             }
         }
 
-        // Función para iniciar un nuevo cuestionario (selección aleatoria)
+        // Función para iniciar un nuevo cuestionario
         function startNewQuiz() {
-            // Copiar y barajar las preguntas originales
-            let shuffledQuestions = [...allQuestions];
-            shuffleArray(shuffledQuestions);
-
-            // Seleccionar las primeras 10 preguntas
-            currentQuizQuestions = shuffledQuestions.slice(0, 10);
-
-            // Reiniciar estado
+            // Separar preguntas por puntos
+            const normalQuestions = allQuestions.filter(q => q.points === 1);
+            const doubleQuestions = allQuestions.filter(q => q.points === 2);
+            
+            // Mezclar y seleccionar
+            shuffleArray(normalQuestions);
+            shuffleArray(doubleQuestions);
+            
+            currentQuizQuestions = [
+                ...normalQuestions.slice(0, 9),
+                ...doubleQuestions.slice(0, 1)
+            ];
+            shuffleArray(currentQuizQuestions); // Mezclar el orden final
             currentQuestionIndex = 0;
             score = 0;
             scoreEl.textContent = `Puntaje: ${score}`;
-            answerSelected = false;
-
-            // Mostrar contenedor del quiz y ocultar resultados
+            selectedOptionButton = null;
             resultsContainer.classList.add('hidden');
             quizContainer.classList.remove('hidden');
-
-            // Cargar la primera pregunta
+            checkButton.classList.add('invisible'); // Ocultar Revisar al inicio
+            nextButton.classList.add('invisible'); // Ocultar Siguiente al inicio
             loadQuestion();
         }
 
-
         // Función para cargar una pregunta
         function loadQuestion() {
-            answerSelected = false; // Resetear estado de selección
+            selectedOptionButton = null; // Resetear selección
+            selectedOptions = []; // Limpiar array de múltiples selecciones
             const currentQuestion = currentQuizQuestions[currentQuestionIndex];
             questionTextEl.textContent = currentQuestion.question;
-            optionsAreaEl.innerHTML = ''; // Limpiar opciones anteriores
-            feedbackAreaEl.textContent = ''; // Limpiar feedback anterior
-            feedbackAreaEl.className = 'mt-4 text-center font-medium h-6'; // Resetear clases de feedback
-            nextButton.classList.add('invisible'); // Ocultar botón siguiente
+            optionsAreaEl.innerHTML = '';
+            feedbackAreaEl.textContent = '';
+            feedbackAreaEl.className = 'mt-4 text-center font-medium h-6'; // Resetear clases feedback
+            checkButton.classList.add('invisible'); // Ocultar botón Revisar
+            nextButton.classList.add('invisible'); // Ocultar botón Siguiente
 
-            // Actualizar contador (ahora es de 10 preguntas)
             questionCounterEl.textContent = `Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}`;
 
-            // Crear botones para las opciones
             currentQuestion.options.forEach(option => {
                 const button = document.createElement('button');
                 const optionLetter = option.match(/^([a-e])\)/i)?.[1].toLowerCase();
-
                 button.textContent = option;
                 button.classList.add('block', 'w-full', 'text-left', 'p-3', 'border', 'border-gray-300', 'rounded-lg', 'hover:bg-gray-100', 'transition', 'duration-150', 'ease-in-out');
                 button.dataset.option = optionLetter;
-                button.onclick = selectAnswer;
+                button.onclick = handleOptionSelect; // Cambiado a handleOptionSelect
                 optionsAreaEl.appendChild(button);
             });
         }
 
-        // Función para manejar la selección de respuesta
-        function selectAnswer(event) {
-            if (answerSelected) return;
-            answerSelected = true;
+        // Función para manejar la selección de una opción (sin revisar aún)
+        function handleOptionSelect(event) {
+    const clickedButton = event.target;
+    const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+    const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
 
-            const selectedButton = event.target;
-            const selectedOption = selectedButton.dataset.option;
-            const correctOption = currentQuizQuestions[currentQuestionIndex].correctAnswer.toLowerCase();
+    if (isMultiAnswer) {
+        // Si ya está seleccionado, deseleccionar
+        if (selectedOptions.includes(clickedButton)) {
+            clickedButton.classList.remove('selected');
+            selectedOptions = selectedOptions.filter(btn => btn !== clickedButton);
+        } 
+        // Si no está seleccionado y hay menos de 2, agregar
+        else if (selectedOptions.length < 2) {
+            clickedButton.classList.add('selected');
+            selectedOptions.push(clickedButton);
+        }
+        // Si ya hay 2 seleccionados, reemplazar el más antiguo
+        else {
+            const oldestSelection = selectedOptions.shift(); // Quitar el primero
+            oldestSelection.classList.remove('selected');
+            clickedButton.classList.add('selected');
+            selectedOptions.push(clickedButton); // Agregar el nuevo
+        }
+    } else {
+        // Lógica original de 1 selección
+        if (selectedOptionButton) selectedOptionButton.classList.remove('selected');
+        selectedOptionButton = clickedButton;
+        clickedButton.classList.add('selected');
+    }
 
-            const optionButtons = optionsAreaEl.querySelectorAll('button');
-            optionButtons.forEach(button => button.disabled = true);
+    checkButton.classList.toggle('invisible', !(isMultiAnswer ? selectedOptions.length === 2 : selectedOptionButton));
+}
 
-            if (selectedOption === correctOption) {
-                score++;
+        // Función para revisar la respuesta seleccionada
+        function checkAnswer() {
+            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
+            
+            // Obtener respuestas seleccionadas y correctas
+            const selected = isMultiAnswer 
+                ? selectedOptions.map(btn => btn.dataset.option).sort()
+                : [selectedOptionButton?.dataset.option];
+                
+            const correct = Array.isArray(currentQuestion.correctAnswer) 
+                ? currentQuestion.correctAnswer.slice().sort()
+                : [currentQuestion.correctAnswer.toLowerCase()];
+
+            // Deshabilitar y limpiar selección
+            optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('selected');
+            });
+
+            // Verificar y sumar puntos
+            if (JSON.stringify(selected) === JSON.stringify(correct)) {
+                score += currentQuestion.points; // Usar points de la pregunta
                 scoreEl.textContent = `Puntaje: ${score}`;
-                selectedButton.classList.add('correct');
                 feedbackAreaEl.textContent = '¡Correcto!';
                 feedbackAreaEl.classList.add('text-green-600');
             } else {
-                selectedButton.classList.add('incorrect');
-                feedbackAreaEl.textContent = `Incorrecto. La respuesta correcta era la ${correctOption.toUpperCase()}).`;
+                feedbackAreaEl.textContent = `Incorrecto. Respuestas correctas: ${correct.join(' y ').toUpperCase()}`;
                 feedbackAreaEl.classList.add('text-red-600');
-                 optionButtons.forEach(button => {
-                    if (button.dataset.option === correctOption) {
-                         button.classList.add('correct');
-                         button.classList.remove('hover:bg-gray-100');
-                    }
-                 });
             }
 
+            // Resaltar opciones
+            optionsAreaEl.querySelectorAll('button').forEach(btn => {
+                const option = btn.dataset.option;
+                if (correct.includes(option)) {
+                    btn.classList.add('correct');
+                    if (selected.includes(option)) {
+                        btn.classList.add('selected-correct');
+                    }
+                } else if (selected.includes(option)) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            checkButton.classList.add('invisible');
             nextButton.classList.remove('invisible');
         }
+
 
         // Función para ir a la siguiente pregunta o mostrar resultados
         function nextQuestion() {
             currentQuestionIndex++;
-            if (currentQuestionIndex < currentQuizQuestions.length) { // Comprobar contra 10
+            if (currentQuestionIndex < currentQuizQuestions.length) {
                 loadQuestion();
             } else {
                 showResults();
@@ -410,20 +536,48 @@
         }
 
         // Función para mostrar los resultados finales
-        function showResults() {
-            quizContainer.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-            finalScoreEl.textContent = `${score}`; // Ya se muestra "de 10" en el HTML
-        }
+        // --- Modificar función showResults ---
+// Actualizar función showResults
+function showResults() {
+    const resultsContent = `
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Cuestionario Completado!</h2>
+        ${score >= 9 ? 
+            '<p class="text-2xl font-bold text-green-600 mb-4">¡APROBADO! 🎉</p>' : 
+            '<p class="text-2xl font-bold text-red-600 mb-4">¡REPROBADO! 😞</p>'}
+        <p class="text-xl text-gray-700 mb-6">Tu puntaje final es: 
+        <span class="font-bold">${score}</span> de 11</p>
+    `;
+    
+    document.getElementById('dynamic-results-content').innerHTML = resultsContent;
+    quizContainer.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+}
 
-        // --- Event Listeners ---
-        nextButton.addEventListener('click', nextQuestion);
-        // Ambos botones de reinicio llaman a la misma función para empezar con nuevas preguntas
-        restartButton.addEventListener('click', startNewQuiz);
-        startOverButton.addEventListener('click', startNewQuiz);
+// --- Agregar evento al botón de inicio ---
+startButton.addEventListener('click', startNewQuiz);
 
-        // --- Inicializar el Quiz ---
-        startNewQuiz(); // Iniciar con la primera selección aleatoria
+// --- Ocultar quiz al cargar la página ---
+window.onload = () => {
+    quizContainer.classList.add('hidden');
+    resultsContainer.classList.add('hidden');
+    startScreen.classList.remove('hidden'); // ← Usar la variable definida
+};
+
+    // --- Event Listeners ---
+    checkButton.addEventListener('click', checkAnswer);
+    nextButton.addEventListener('click', nextQuestion);
+    restartButton.addEventListener('click', startNewQuiz); 
+
+    // Botón "Comenzar de nuevo" (siempre visible)
+    startOverButton.addEventListener('click', () => {
+        document.getElementById('start-screen').classList.remove('hidden');
+        quizContainer.classList.add('hidden');
+        resultsContainer.classList.add('hidden');
+        startNewQuiz();
+    });
+
+    // Botón de inicio "Comenzar Examen"
+    startButton.addEventListener('click', startNewQuiz);
 
     </script>
 </body>
