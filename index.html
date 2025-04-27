@@ -84,11 +84,11 @@
         <div id="start-screen" class="text-center">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Instrucciones del Examen</h2>
             <div class="bg-gray-50 p-6 rounded-lg mb-8 text-left space-y-4">
-                <p class="text-gray-700">• El examen consta de 10 preguntas:</p>
-                <p class="text-gray-700">• 9 preguntas valen <span class="font-bold">1 punto</span> cada una</p>
+                <p class="text-gray-700">• El examen consta de 4 preguntas:</p>
+                <p class="text-gray-700">• 3 preguntas valen <span class="font-bold">1 punto</span> cada una</p>
                 <p class="text-gray-700">• 1 pregunta vale <span class="font-bold">2 puntos</span></p>
-                <p class="text-gray-700">• Puntaje máximo posible: <span class="font-bold">11 puntos</span></p>
-                <p class="text-gray-700">• Para aprobar se requiere: <span class="font-bold text-green-600">Mínimo 9 puntos</span></p>
+                <p class="text-gray-700">• Puntaje máximo posible: <span class="font-bold">5 puntos</span></p>
+                <p class="text-gray-700">• Para aprobar se requiere: <span class="font-bold text-green-600">Mínimo 4 puntos</span></p>
             </div>
             <button id="start-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-200 ease-in-out text-lg">
                 Comenzar Examen
@@ -96,7 +96,7 @@
         </div>
         <div id="quiz-container" class="hidden">
             <div class="mb-4 text-sm text-gray-600 flex justify-between items-center">
-                <span id="question-counter">Pregunta 1 de 10</span>
+                <span id="question-counter">Pregunta 1 de 4</span>
                 <span id="score">Puntaje: 0</span>
             </div>
 
@@ -122,7 +122,6 @@
 
         <div id="results-container" class="hidden text-center">
              <!-- Eliminar el elemento final-score duplicado -->
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Cuestionario Completado!</h2>
     <div id="dynamic-results-content"></div> <!-- Contenedor para contenido dinámico -->
             <button id="restart-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out">
                 Intentar con otras 10 preguntas
@@ -167,185 +166,8 @@
                 correctAnswer: "d",
                 points: 1
             },
-            {
-                question: "4.- ¿Cómo puede prevenir usted el riesgo de incendio de su vehiculo?",
-                options: [
-                    "a) Manteniendo los niveles de agua sobre el máximo.",
-                    "b) Evitando conducir con el estanque lleno de combustible.",
-                    "c) Usando gasolina sin plomo.",
-                    "d) Revisando su vehiculo ante cualquier olor a gasolina extraño."
-                ],
-                correctAnswer: "d",
-                points: 1
-            },
-            {
-                question: "5.- ¿Por qué es importante usar zapatos apropiados cuando conduce?",
-                options: [
-                    "a) Para tener un adecuado control de los pedales.",
-                    "b) Para evitar el desgaste acelerado de las gomas de los pedales.",
-                    "c) Para poder efectuar los cambios de marcha más rápidamente.",
-                    "d) Para poder caminar sin problemas en el caso que necesite solicitar ayuda."
-                ],
-                correctAnswer: "a",
-                points: 1
-            },
-            {
-                question: "6.- En un automóvil, ¿cuál de los siguientes elementos reduce el riesgo de lesiones de cuello en una colisión?",
-                options: [
-                    "a) Un asiento dotado de air-bag (bolsa de aire).",
-                    "b) Los frenos ABS.",
-                    "c) Una columna de dirección colapsable.",
-                    "d) Un asiento con apoya-cabeza ajustado en forma apropiada."
-                ],
-                correctAnswer: "d",
-                points: 1
-            },
-            {
-                question: "7.- ¿Qué significa esta luz de advertencia en el panel de instrumentos? (Asumiendo luces de advertencia de peligro)",
-                options: [
-                    "a) Luces neblineras.",
-                    "b) Intermitentes de advertencia de peligro.",
-                    "c) Luces altas.",
-                    "d) Freno de mano puesto."
-                ],
-                correctAnswer: "b",
-                points: 1
-            },
-            {
-                question: "8.- Es esencial que la presión de los neumáticos sea chequeada regularmente. ¿Cuándo se debe hacer esto?",
-                options: [
-                    "a) Después de un viaje largo.",
-                    "b) Después de conducir a alta velocidad.",
-                    "c) Cuando los neumáticos están frios.",
-                    "d) Cuando los neumáticos están calientes."
-                ],
-                correctAnswer: "c",
-                points: 1
-            },
-            {
-                question: "9.- La presión de los neumáticos debe revisarse:",
-                options: [
-                    "a) Cuando los neumáticos están fríos.",
-                    "b) Cuando los neumáticos están calientes.",
-                    "c) En cualquier momento, porque da igual que los neumáticos estén fríos o calientes."
-                ],
-                correctAnswer: "a",
-                points: 1
-            },
-            {
-                question: "10.- ¿Cuál de estos líquidos, en el caso de estar en un nivel bajo, podría causar un accidente?",
-                options: [
-                    "a) El liquido de freno.",
-                    "b) El anticongelante.",
-                    "c) El agua de la batería.",
-                    "d) El liquido refrigerante."
-                ],
-                correctAnswer: "a",
-                points: 1
-            },
-            {
-                question: "11.- Frente a una situación normal, ¿cuál es la forma más segura de frenar?",
-                options: [
-                    "a) Frenando fuerte, poniendo la palanca de cambio en neutro y tirando el freno de mano justo antes de detenerse.",
-                    "b) Frenando suavemente, presionando el pedal de embrague y tirando el freno de mano justo antes de detenerse.",
-                    "c) Poniendo la palanca de cambio en neutro, frenando fuerte y luego soltando el freno justo antes de detenerse.",
-                    "d) Frenando suavemente, luego un poco más fuerte cuando comienza a detenerse y después aflojando de a poco el freno antes de detenerse."
-                 ],
-                 correctAnswer: "d",
-                 points: 1
-            },
-            {
-                 question: "12.- ¿Cuándo usaria usted las luces intermitentes de advertencia de peligro?",
-                 options: [
-                    "a) Cuando esté en pana obstruyendo el tránsito.",
-                    "b) Cuando se estacione en doble fila respecto a otro vehículo estacionado junto a la cuneta.",
-                    "c) Cuando estacione junto a una cuneta en la que hay linea amarilla pintada.",
-                    "d) Cuando sus señalizadores de viraje no estén funcionando."
-                 ],
-                 correctAnswer: "a",
-                 points: 1
-            },
-            {
-                 question: "13.- Las luces de advertencia de peligro deberían ser usadas:",
-                 options: [
-                    "a) Cuando estaciona en doble fila respecto a otro vehículo estacionado junto a la cuneta.",
-                    "b) Para advertir a quienes vienen detrás de un peligro que hay más adelante.",
-                    "c) Para advertir a quienes vienen detrás suyo que usted pretende virar.",
-                    "d) Para advertir a los demás que usted tiene prisa."
-                 ],
-                 correctAnswer: "b",
-                 points: 1
-            },
-            {
-                 question: "14.- ¿Cuándo usaría usted las luces de advertencia de peligro de su vehículo?",
-                 options: [
-                    "a) Cuando esté en pana moviéndose lentamente.",
-                    "b) Cuando esté siendo remolcado.",
-                    "c) Cuando esté retrocediendo en una calle de poco tránsito.",
-                    "d) Cuando esté en pana y obstaculizando el tránsito."
-                 ],
-                 correctAnswer: "d",
-                 points: 1
-            },
-            {
-                 question: "15.- Usted está probando la suspensión de su vehículo cuando nota que éste rebota u oscila al cargarlo en un extremo lateral frontal. ¿Qué significa esto?",
-                 options: [
-                    "a) Neumáticos gastados.",
-                    "b) Neumáticos poco inflados.",
-                    "c) Volante de dirección no centrado.",
-                    "d) Amortiguadores gastados."
-                 ],
-                 correctAnswer: "d",
-                 points: 1
-            },
-            {
-                 question: "16.- ¿Por qué los neumáticos deben mantenerse a la presión indicada por el fabricante?",
-                 options: [
-                    "a) Para que el vehículo se mantenga a la altura correcta sobre la vía.",
-                    "b) Para no desgastar el motor.",
-                    "c) Para ayudar a evitar que el automóvil se roncee.",
-                    "d) Para evitar que el automóvil se incline hacia un lado."
-                 ],
-                 correctAnswer: "c",
-                 points: 1
-            },
-            {
-                 question: "17.- ¿A qué se debe un alto consumo de combustible?",
-                 options: [
-                    "a) Fallas en el sistema de dirección.",
-                    "b) Aceleraciones en curvas.",
-                    "c) Frecuentes frenadas y aceleraciones.",
-                    "d) Conducción en marchas altas."
-                 ],
-                 correctAnswer: "c",
-                 points: 1
-            },
-            {
-                 question: "18.- La profundidad de los surcos de los neumáticos de un automóvil no debería ser inferior a ...",
-                 options: [
-                    "a) 5.0 mm",
-                    "b) 4.0 mm",
-                    "c) 1.6 mm",
-                    "d) 1.0 mm"
-                 ],
-                 correctAnswer: "c",
-                 points: 1
-            },
-            // En el array allQuestions, actualizar las preguntas 19 y 20:
 {
-    question: "19.- Uno de sus neumáticos traseros se revienta mientras usted conduce. ¿Cuáles 2 cosas debe hacer usted?",
-    options: [
-        "a) Poner marcha atrás para detener el vehículo.",
-        "b) Hacer una señal de detención con el brazo y disminuir la velocidad.",
-        "c) Detenerse lentamente al costado de la via.",
-        "d) Detener el vehículo frenando lo más fuerte que pueda.",
-        "e) Girar el volante hacia el mismo lado hacia el cual se desvía la cola del vehículo."
-    ],
-    correctAnswer: ["c", "e"] ,
-    points: 2
-},
-{
-    question: "20.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero?",
+    question: "4.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero?",
     options: [
         "a) Cambiarse de pista y frenar a fondo.",
         "b) Frenar suavemente o dejar que el vehículo siga hasta detenerse.",
@@ -402,7 +224,7 @@
             shuffleArray(doubleQuestions);
             
             currentQuizQuestions = [
-                ...normalQuestions.slice(0, 9),
+                ...normalQuestions.slice(0, 3),
                 ...doubleQuestions.slice(0, 1)
             ];
             shuffleArray(currentQuizQuestions); // Mezclar el orden final
@@ -541,11 +363,11 @@
 function showResults() {
     const resultsContent = `
         <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Cuestionario Completado!</h2>
-        ${score >= 9 ? 
+        ${score >= 4 ? 
             '<p class="text-2xl font-bold text-green-600 mb-4">¡APROBADO! 🎉</p>' : 
             '<p class="text-2xl font-bold text-red-600 mb-4">¡REPROBADO! 😞</p>'}
         <p class="text-xl text-gray-700 mb-6">Tu puntaje final es: 
-        <span class="font-bold">${score}</span> de 11</p>
+        <span class="font-bold">${score}</span> de 5</p>
     `;
     
     document.getElementById('dynamic-results-content').innerHTML = resultsContent;
