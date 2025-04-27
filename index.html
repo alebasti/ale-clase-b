@@ -2,28 +2,76 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrucciones - Cuestionario Licencia Clase B</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PracticaVial</title> <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      /* Estilos personalizados para PracticaVial */
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #f0f0f0; /* Un gris muy claro */
+      }
+      .logo {
+          font-family: 'Arial', sans-serif; /* Una fuente diferente para el logo */
+          font-size: 2.5rem; /* Tamaño grande */
+          font-weight: bold; /* En negrita */
+          color: #007bff; /* Azul, un color que transmite confianza y seguridad */
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra suave */
+      }
+      .menu-button {
+          background-color: #007bff; /* Azul */
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.5rem;
+          text-decoration: none;
+          font-weight: 500; /* No tan negrita como bold, pero más que normal */
+          transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+          display: inline-block; /* Para que la sombra y el padding funcionen correctamente */
+          width: 80%; /* Ancho del botón */
+          text-align: center; /* Centrar el texto */
+          margin-bottom: 1rem;
+      }
+      .menu-button:hover {
+          background-color: #0056b3; /* Un tono más oscuro de azul al pasar el mouse */
+          transform: translateY(-2px); /* Ligeramente hacia arriba al hacer hover */
+          box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Aumentar la sombra al hacer hover */
+      }
+      .menu-button:active {
+          background-color: #004080; /* Un tono aún más oscuro al hacer click */
+          transform: translateY(0); /* Sin movimiento al hacer click */
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra más pequeña al hacer click */
+      }
+      .container {
+          background-color: white;
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+          max-width: 90%; /* Ancho máximo del contenedor */
+          width: 100%; /* Asegurar que el contenedor ocupe el 100% del ancho disponible */
+          text-align: center;
+      }
+      h1 {
+          color: #2c3e50; /* Un gris oscuro, casi negro */
+          margin-bottom: 2rem;
+          font-size: 2rem;
+      }
+      p {
+          color: #667885; /* Un gris más claro */
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+      }
+    </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-2xl text-center">
-        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Cuestionario Licencia Clase B</h1>
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Instrucciones del Examen</h2>
-        <div class="bg-gray-50 p-6 rounded-lg mb-8 text-left space-y-4">
-            <p class="text-gray-700">• El examen consta de 4 preguntas:</p>
-            <p class="text-gray-700">• 3 preguntas valen <span class="font-bold">1 punto</span> cada una</p>
-            <p class="text-gray-700">• 1 pregunta vale <span class="font-bold">2 puntos</span></p>
-            <p class="text-gray-700">• Puntaje máximo posible: <span class="font-bold">5 puntos</span></p>
-            <p class="text-gray-700">• Para aprobar se requiere: <span class="font-bold text-green-600">Mínimo 4 puntos</span></p>
-        </div>
-        <a href="quiz.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-200 ease-in-out text-lg inline-block">
-            Comenzar Examen
-        </a>
+    <div class="container">
+        <div class="logo">PracticaVial</div> <h1>Bienvenido</h1>
+        <p>Tu plataforma para dominar la Licencia de Conducir Clase B.</p>
+        <div class="botones-menu">
+            <a href="examen.html" class="menu-button">Probar Examen Oficial</a>
     </div>
 </body>
 </html>
