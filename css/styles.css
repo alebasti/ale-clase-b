@@ -1,0 +1,60 @@
+/* Estilos adicionales */
+body {
+    font-family: 'Inter', sans-serif; /* Fuente Inter */
+}
+/* Estilo para resaltar respuestas */
+/* Asegurar prioridad de estilos */
+.correct {
+    background-color: #22c55e !important;
+    border-color: #16a34a !important;
+}
+
+.incorrect {
+    background-color: #ef4444 !important;
+    border-color: #dc2626 !important;
+}
+
+.selected-correct::after {
+    content: "✓";
+    margin-left: 10px;
+    font-weight: bold;
+    color: white;
+}
+/* Estilo para la opción seleccionada antes de revisar */
+.selected {
+    border-color: #3b82f6 !important; /* Azul */
+    background-color: #eff6ff !important; /* Azul claro */
+    border-width: 2px;
+}
+/* Estilo para botones deshabilitados */
+button:disabled:not(.correct):not(.incorrect) { /* No aplicar opacidad a los botones ya coloreados */
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+/* Asegurar que el botón de reiniciar siempre esté visible */
+#start-over-button-container {
+    position: sticky;
+    top: 1rem; /* Ajusta según sea necesario */
+    z-index: 10;
+    text-align: right; /* Alinea el botón a la derecha */
+    margin-bottom: 1rem; /* Espacio debajo del botón */
+}
+/* Clases para visibilidad */
+.hidden {
+    display: none;
+}
+.visible {
+    display: block; /* O inline-block, flex, etc., según el elemento */
+}
+.invisible {
+    visibility: hidden;
+}
+/* Agregar estos estilos */
+#start-screen {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
