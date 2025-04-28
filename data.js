@@ -1,71 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Rápido Licencia Clase B</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-   
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-2xl relative">
-        <div id="start-over-button-container" class="text-right mb-4">
-             <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out text-sm inline-block">
-                Volver al Inicio
-            </a>
-        </div>
-
-        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Test Rápido Licencia Clase B</h1>
-
-        <div id="quiz-container">
-            <div class="mb-4 text-sm text-gray-600 flex justify-between items-center">
-                <span id="question-counter">Pregunta 1 de X</span> <div>
-                    <span id="correct-count" class="mr-2">Correctas: 0</span>
-                    <span id="incorrect-count">Incorrectas: 0</span>
-                </div>
-            </div>
-
-            <div id="question-area" class="mb-6">
-                <p id="question-text" class="text-lg text-gray-700 font-medium"></p>
-                 <p id="multi-answer-indicator" class="text-sm text-blue-600 mt-2 hidden">Selecciona 2 opciones.</p>
-            </div>
-
-            <div id="options-area" class="space-y-3">
-                </div>
-
-            <div id="feedback-area" class="mt-4 text-center font-medium h-6">
-                </div>
-
-            <div class="mt-6 text-center space-x-4">
-                 <button id="check-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
-                    Revisar
-                </button>
-                <button id="next-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out invisible">
-                    Siguiente
-                </button>
-            </div>
-        </div>
-
-        <div id="results-container" class="hidden text-center">
-             <div id="dynamic-results-content">
-                 </div>
-            <button id="restart-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out inline-block mt-4">
-                Reintentar Test Rápido
-            </button>
-             <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out inline-block mt-4 ml-4">
-                Volver al Inicio
-            </a>
-        </div>
-    </div>
-
-    <script>
-        // --- Base de Datos de Preguntas ---
-        const allQuestions = [
-{
+const allQuestions = [
+    {
         question: "1.- Su vehículo se desvia hacia un lado cuando usted frena. Usted deberia:",
         options: [
             "a) Cambiar los neumáticos de un lado hacia el otro y viceversa.",
@@ -76,7 +10,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "2.- Su vehículo se desvía hacia un lado cuando usted frena. ¿Cuál es la falla más probable?",
         options: [
             "a) Un bajo nivel del liquido de frenos.",
@@ -87,7 +21,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "3.- Mientras conduce usted siente un fuerte olor a gasolina. ¿Qué debería hacer usted?",
         options: [
             "a) No preocuparse, ya que sólo son los gases de escape.",
@@ -98,7 +32,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "4.- ¿Cómo puede prevenir usted el riesgo de incendio de su vehiculo?",
         options: [
             "a) Manteniendo los niveles de agua sobre el máximo.",
@@ -109,7 +43,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "5.- ¿Por qué es importante usar zapatos apropiados cuando conduce?",
         options: [
             "a) Para tener un adecuado control de los pedales.",
@@ -120,7 +54,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "6.- En un automóvil, ¿cuál de los siguientes elementos reduce el riesgo de lesiones de cuello en una colisión?",
         options: [
             "a) Un asiento dotado de air-bag (bolsa de aire).",
@@ -131,7 +65,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "7.- ¿Qué significa esta luz de advertencia en el panel de instrumentos?", // Image missing in text source
         options: [
             "a) Luces neblineras.",
@@ -142,7 +76,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "8.- Es esencial que la presión de los neumáticos sea chequeada regularmente. ¿Cuándo se debe hacer esto?",
         options: [
             "a) Después de un viaje largo.",
@@ -153,7 +87,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "9.- La presión de los neumáticos debe revisarse:",
         options: [
             "a) Cuando los neumáticos están fríos.",
@@ -163,7 +97,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "10.- ¿Cuál de estos líquidos, en el caso de estar en un nivel bajo, podría causar un accidente?",
         options: [
             "a) El liquido de freno.",
@@ -174,7 +108,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "11.- Frente a una situación normal, ¿cuál es la forma más segura de frenar?",
         options: [
             "a) Frenando fuerte, poniendo la palanca de cambio en neutro y tirando el freno de mano justo antes de detenerse.",
@@ -185,7 +119,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "12.- ¿Cuándo usaria usted las luces intermitentes de advertencia de peligro?",
         options: [
             "a) Cuando esté en pana obstruyendo el tránsito.",
@@ -196,7 +130,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "13.- Las luces de advertencia de peligro deberían ser usadas:",
         options: [
             "a) Cuando estaciona en doble fila respecto a otro vehículo estacionado junto a la cuneta.",
@@ -207,7 +141,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "14.- ¿Cuándo usaría usted las luces de advertencia de peligro de su vehículo?",
         options: [
             "a) Cuando esté en pana moviéndose lentamente.",
@@ -218,7 +152,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "15.- Usted está probando la suspensión de su vehículo cuando nota que éste rebota u oscila al cargarlo en un extremo lateral frontal. ¿Qué significa esto?",
         options: [
             "a) Neumáticos gastados.",
@@ -229,7 +163,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "16.- ¿Por qué los neumáticos deben mantenerse a la presión indicada por el fabricante?",
         options: [
             "a) Para que el vehículo se mantenga a la altura correcta sobre la vía.",
@@ -240,7 +174,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "17.- ¿A qué se debe un alto consumo de combustible?",
         options: [
             "a) Fallas en el sistema de dirección.",
@@ -251,7 +185,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "18.- La profundidad de los surcos de los neumáticos de un automóvil no debería ser inferior a ...",
         options: [
             "a) 5.0 mm",
@@ -262,7 +196,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "19.- Uno de sus neumáticos traseros se revienta mientras usted conduce. ¿Cuáles 2 cosas debe hacer usted? (Marque dos respuestas)",
         options: [
             "a) Poner marcha atrás para detener el vehículo.",
@@ -274,7 +208,7 @@
         correctAnswer: ["c", "e"],
         points: 2
     },
-{
+    {
         question: "20.- ¿Cuáles 2 cosas debe usted hacer si se le revienta un neumático delantero? (Marque dos respuestas)",
         options: [
             "a) Cambiarse de pista y frenar a fondo.",
@@ -286,7 +220,7 @@
         correctAnswer: ["b", "c"], // Corrected based on standard procedure and PDF options. Key says b+d, but 'd' contradicts 'b'. 'c' is crucial. Assuming key meant b+c.
         points: 2
     },
-{
+    {
         question: "21.- ¿Qué es lo que usted nunca deberia hacer en una bomba de bencina?",
         options: [
             "a) Circular por ella",
@@ -297,7 +231,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "22.- Desenganchar el motor del vehículo...",
         options: [
             "a) permite un mejor control al conductor.",
@@ -308,7 +242,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "23.- ¿Por qué no es bueno desenganchar el motor del vehiculo al ir circulando?",
         options: [
             "a) Porque ello hace que el vehículo resbale.",
@@ -319,7 +253,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "24.- ¿Cuáles son las 2 principales razones por las cuales no debe desengancharse el motor al ir cuesta abajo? (Marque dos respuestas)",
         options: [
             "a) Porque tendrá menor control del frenado y dirección.",
@@ -331,7 +265,7 @@
         correctAnswer: ["a", "b"],
         points: 2
     },
-{
+    {
         question: "25.- ¿Por qué usted no debería conducir presionando el pedal de embrague durante más tiempo que el necesario?",
         options: [
             "a) Porque reduce su control sobre el vehículo.",
@@ -342,7 +276,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "26.- ¿Para qué sirven los seguros de niños de los vehiculos?",
         options: [
             "a) Aseguran las hebillas de los cinturones de seguridad.",
@@ -353,7 +287,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "27.- Una baja presión de aire en los neumáticos delanteros",
         options: [
             "a) hace que el vehículo tienda a torcer hacia un lado.",
@@ -364,7 +298,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "28.- En un pavimento mojado, ¿influye el estado de los neumáticos en la distancia de frenado de su vehiculo?",
         options: [
             "a) No, la distancia de frenado depende sólo de la velocidad.",
@@ -375,7 +309,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "29.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Cuando el motor no está siendo lubricado se enciende una luz en el panel de instrumentos del vehículo.",
@@ -386,7 +320,7 @@
         correctAnswer: ["a", "b", "c", "d"],
         points: 4
     },
-{
+    {
         question: "30.- ¿Cuáles 2 de las siguientes afirmaciones son verdaderas? (Marque dos respuestas)",
         options: [
             "a) Los gases de escape no son peligrosos para la salud de las personas.",
@@ -397,7 +331,7 @@
         correctAnswer: ["b", "c"],
         points: 2
     },
-{
+    {
         question: "31.- ¿Cuáles 2 de las siguientes afirmaciones son verdaderas? (Marque dos respuestas)",
         options: [
             "a) A mayor velocidad, mayor es el consumo del liquido de frenos.",
@@ -409,7 +343,7 @@
         correctAnswer: ["b", "d"],
         points: 2
     },
-{
+    {
         question: "32.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Una profundidad de 1 mm de los surcos de las bandas de rodamiento de los neumáticos siempre es suficiente para asegurar una buena fricción con el pavimento.",
@@ -420,7 +354,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "33.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) El cinturón de seguridad disminuye las posibilidades de sufrir lesiones en un accidente.",
@@ -431,7 +365,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "34.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) No es seguro que un adulto lleve a un niño pequeño incluyéndolo en su cinturón de seguridad.",
@@ -442,7 +376,7 @@
         correctAnswer: ["a", "b", "d"],
         points: 3
     },
-{
+    {
         question: "35.- ¿Qué elementos de su vehiculo debe usted mantener limpios? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Las luces.",
@@ -453,7 +387,7 @@
         correctAnswer: ["a", "b", "d"],
         points: 3
     },
-{
+    {
         question: "36.- Suponga que en una ocasión, su distancia de reacción es de 10 metros, su distancia de frenado es de 8 metros, su distancia de detención (distancia de reacción más distancia de frenado) es de 18 metros. ¿Cuál sería su distancia de detención si sigue conduciendo en calzada de idénticas características y condiciones, pero aumenta al doble su velocidad?",
         options: [
             "a) 46 metros",
@@ -465,7 +399,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "37.- ¿Cuál de las siguientes afirmaciones es falsa cuando usted aumenta su velocidad de 30 km/h a 60 km/h?",
         options: [
             "a) Se duplica la energía cinética.", // False (it quadruples)
@@ -476,7 +410,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "38.- El auto azul circula a 70 km/h y el rojo a 90 km/h. ¿Dónde es más probable que sus conductores estimen el punto en que se producirá el encuentro de ambos vehículos? (Marque dos respuestas)", // Image missing in text source
         options: [
             "a) El conductor del auto rojo estima que dicho punto será el 3.",
@@ -488,7 +422,7 @@
         correctAnswer: ["a", "d"],
         points: 2
     },
-{
+    {
         question: "39.- ¿Qué distancia de detención tiene un tren que circula a alrededor de 100 km/h?",
         options: [
             "a) Aproximadamente 100 metros.",
@@ -499,7 +433,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "40.- ¿Qué es lo más importante para evitar chocar al vehículo que va adelante?",
         options: [
             "a) Asegurarse de que sus frenos sean eficientes.",
@@ -510,7 +444,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "41.- Usted va circulando a 50 km/h a lo largo de un camino plano y de asfalto. Las condiciones climáticas son buenas. Sus neumáticos y frenos también están buenos. En estas circunstancias, detenerse le tomará aproximadamente...",
         options: [
             "a) unos 50 metros",
@@ -521,7 +455,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "42.- La distancia de detención total es igual a la suma de la distancia de reacción y la de frenado. Aproximadamente, ¿cuál es la mínima distancia de detención total en un asfalto seco, si usted viaja a 90 km/h?",
         options: [
             "a) Unos 50 metros",
@@ -532,7 +466,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "43.- Usted conduce un vehiculo con frenos y neumáticos en buenas condiciones. La superficie de calzada está seca. ¿Cuál es la distancia aproximada de detención total (distancia de reacción más distancia de frenado) si usted va a 70 km/h?",
         options: [
             "a) Unos 15 metros",
@@ -543,7 +477,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "44.- Usted desea estacionar en bajada en una calle con pendiente pronunciada. ¿Qué debería hacer? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Estacionar detrás de otro auto.",
@@ -554,7 +488,7 @@
         correctAnswer: ["c", "d"],
         points: 2
     },
-{
+    {
         question: "45.- Usted está descendiendo una pendiente muy larga. ¿Qué debería hacer para ayudar a controlar la velocidad de su vehículo?",
         options: [
             "a) Tomar el manubrio firmemente..", // Corrected typo '..' to '.'
@@ -565,7 +499,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "46.- Usted está virando hacia la derecha en un camino resbaladizo y las ruedas traseras de su vehículo resbalan hacia la izquierda. ¿Qué debería hacer usted?",
         options: [
             "a) Frenar firmemente y no girar el manubrio.",
@@ -576,7 +510,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "47.- Usted está próximo a descender por una pendiente muy pronunciada. ¿Qué debería hacer para controlar la velocidad de su vehículo?",
         options: [
             "a) Seleccionar un cambio bajo y usar los frenos cuidadosamente.",
@@ -587,7 +521,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "48.- La distancia de frenado es la que recorre un vehiculo desde que se presiona el freno hasta que el vehículo se detiene. En condiciones normales, ¿cuál sería aproximadamente su distancia de frenado si usted circula a 90 km/h?",
         options: [
             "a) Unos 45 metros", // Calculation: Braking (90/10 * 5 = 45m approx, or (90/3.6)^2 / (2*g*friction_coeff) -> (25)^2 / (2*9.8*0.7) approx 45m).
@@ -598,7 +532,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "49.- ¿Qué debería hacer usted para corregir un coletazo de las ruedas traseras?",
         options: [
             "a) No girar el volante del vehículo para nada.",
@@ -609,7 +543,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "50.- La distancia de frenado es la distancia que recorre un vehiculo desde que se presiona el freno hasta que el vehículo se detiene. De las siguientes variables, ¿cuáles influyen en la distancia de frenado? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) La velocidad.",
@@ -621,7 +555,7 @@
         correctAnswer: ["a", "c", "d"],
         points: 3
     },
-{
+    {
         question: "51.- Usted va a 70 km/hr. Aproximadamente, ¿qué distancia recorrerá su vehículo desde el momento en que usted se percata de un peligro que hay más adelante hasta que comienza a frenar?", // This is reaction distance
         options: [
             "a) Unos 5 metros.",
@@ -632,7 +566,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "52.- ¿Cuál es el tiempo de reacción promedio de un conductor ante un imprevisto?",
         options: [
             "a) 1 segundo",
@@ -643,7 +577,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "53.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Quien sobrestima sus habilidades para conducir conduce con frecuencia demasiado rápido.",
@@ -654,7 +588,7 @@
         correctAnswer: ["a", "b", "c", "d"],
         points: 4
     },
-{
+    {
         question: "54.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s) en cuanto al desarrollo de la moral de un individuo? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Durante la infancia, antes de llegar a la edad escolar, las personas son egocéntricas y piensan sobre todo en ellas mismas.",
@@ -665,7 +599,7 @@
         correctAnswer: ["a", "b", "d"],
         points: 3
     },
-{
+    {
         question: "55.- ¿Cuáles 2 de las siguientes cualidades de un individuo denotan que ha alcanzado un alto grado de madurez personal? (Marque dos respuestas)",
         options: [
             "a) No sobrestima sus habilidades; tiene un buen conocimiento de si mismo.",
@@ -676,7 +610,7 @@
         correctAnswer: ["a", "d"],
         points: 2
     },
-{
+    {
         question: "56.- ¿Cuál de las siguientes afirmaciones es correcta en cuanto a la capacidad de reacción de los conductores jóvenes inexpertos, comparados con conductores experimentados cuya edad fluctúa entre 35 y 50 años?",
         options: [
             "a) Ante situaciones complejas, los conductores jóvenes reaccionan más rápido.",
@@ -687,7 +621,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "57.- ¿Cuál o cuáles característica(s) distingue(n) a un conductor seguro? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Conduce con prudencia y hace todo lo posible por evitar accidentes.",
@@ -698,7 +632,7 @@
         correctAnswer: ["a", "b", "c", "d"],
         points: 4
     },
-{
+    {
         question: "58.- ¿Cuáles 2 de los siguientes rasgos son característicos de personas que ceden con facilidad a la presión del grupo? (Marque dos respuestas)",
         options: [
             "a) Por lo general, son muy inseguras de sí mismas.",
@@ -710,7 +644,7 @@
         correctAnswer: ["a", "b"],
         points: 2
     },
-{
+    {
         question: "59.- De los siguientes factores que se presentan en los accidentes de tránsito, ¿cuáles son los 2 más frecuentes en los accidentes que ocurren en carreteras viéndose involucrado un solo vehículo? (Marque dos respuestas)",
         options: [
             "a) Que el conductor no posea licencia para conducir.",
@@ -721,7 +655,7 @@
         correctAnswer: ["b", "d"],
         points: 2
     },
-{
+    {
         question: "60.- De los siguientes factores, ¿cuál es el que con mayor frecuencia se presenta en los accidentes de tránsito?",
         options: [
             "a) Los errores de los conductores.",
@@ -732,7 +666,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "61.- En cuanto al estrés al conducir, ¿cuál de las siguientes afirmaciones es falsa?",
         options: [
             "a) Un grado demasiado alto de estrés disminuye su campo de atención.", // True
@@ -743,7 +677,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "62.- ¿Qué puede esperarse de un conductor impulsivo? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Que reaccione adecuadamente ante cualquier imprevisto.",
@@ -754,7 +688,7 @@
         correctAnswer: ["b", "d"],
         points: 2
     },
-{
+    {
         question: "63.- ¿Cuál es el mejor consejo para una conducción segura?",
         options: [
             "a) Mantener el vehículo en muy buenas condiciones.",
@@ -765,7 +699,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "64.- ¿De cuáles 2 maneras puede usted contribuir con mayor eficacia a la seguridad de tránsito? (Marque dos respuestas)",
         options: [
             "a) Contando siempre con tiempo de sobra para conducir.",
@@ -776,7 +710,7 @@
         correctAnswer: ["a", "d"],
         points: 2
     },
-{
+    {
         question: "65.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) La capacidad de reacción de una persona se ve afectada con pequeñas concentraciones de alcohol en su organismo.",
@@ -787,7 +721,7 @@
         correctAnswer: ["a", "c"],
         points: 2
     },
-{
+    {
         question: "66.- En cuanto a la concentración de alcohol en la sangre de una persona que ingiere la misma cantidad en ocasiones diferentes, ¿cuál de las siguientes afirmaciones es falsa?",
         options: [
             "a) Aunque la persona beba la misma cantidad de alcohol cada ocasión, la concentración de éste en su sangre puede ser diferente.", // True
@@ -798,7 +732,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "67.- ¿Qué efecto(s) sobre la visión tiene el conducir a unos 100 km/h? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) A la mayoría de los conductores se les cansa la vista después de conducir más o menos media hora.",
@@ -809,7 +743,7 @@
         correctAnswer: ["b", "c"],
         points: 2
     },
-{
+    {
         question: "68.- ¿Cuáles son los primeros síntomas de cansancio?",
         options: [
             "a) Se comienza a sentir calor y agresividad.",
@@ -820,7 +754,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "69.- El modo como percibimos una situación depende, entre otros factores, de nuestras experiencias anteriores, intereses, expectativas y necesidades. En este contexto, ¿cuál de las siguientes afirmaciones es falsa?",
         options: [
             "a) Un conductor que siente apremio por falta de tiempo puede subestimar los riesgos de la alta velocidad.", // True
@@ -831,7 +765,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "70.- De las siguientes afirmaciones, ¿cuál o cuáles es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) El factor humano es el principal causante de que surjan situaciones de riesgo en el tránsito.",
@@ -842,7 +776,7 @@
         correctAnswer: ["a", "b", "c", "d"],
         points: 4
     },
-{
+    {
         question: "71.- En relación con la técnica de observación de los conductores inexpertos, ¿cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Los conductores inexpertos concentran su mirada en puntos fijos.",
@@ -853,7 +787,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "72.- De las siguientes afirmaciones, ¿cuál o cuáles es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) El tener una buena visión es imprescindible para poder captar las diversas situaciones que se presentan al conducir.",
@@ -864,7 +798,7 @@
         correctAnswer: ["a", "b", "c"],
         points: 3
     },
-{
+    {
         question: "73.- ¿Cuándo es alto el riesgo de interpretar erróneamente la realidad al conducir? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Cuando va por un camino montañoso y con muchas sinuosidades, y la visibilidad es muy mala.",
@@ -875,7 +809,7 @@
         correctAnswer: ["a", "b", "c"],
         points: 3
     },
-{
+    {
         question: "74.- ¿Qué debería hacer usted si está tomando un remedio para la tos y no está seguro si éste puede afectar su conducción?",
         options: [
             "a) No conducir tan pronto haya ingerido el remedio, sino que esperar un rato.",
@@ -886,7 +820,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "75.- Usted está tomando unos remedios que probablemente afectarán su conducción. ¿Qué debería hacer?",
         options: [
             "a) Limitar su conducción sólo a viajes esenciales.",
@@ -897,7 +831,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "76.- Su doctor le ha recetado un tratamiento. ¿Por qué usted debe consultarle si puede conducir o no?",
         options: [
             "a) Porque algunas medicinas pueden hacer que sus reacciones sean más lentas.",
@@ -908,7 +842,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "77.- Si usted ha ingerido alcohol, ¿cuál o cuáles son los efectos más probables? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Su capacidad de coordinación se reducirá.",
@@ -921,7 +855,7 @@
         correctAnswer: ["a", "b", "e"],
         points: 3
     },
-{
+    {
         question: "78.- ¿Cómo afecta el consumo de alcohol a su conducción?",
         options: [
             "a) Acelera sus reacciones.",
@@ -932,7 +866,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "79.- Si usted va conduciendo y comienza a sentir cansancio, es mejor que se detenga lo antes posible. ¿Qué debería hacer usted mientras no pueda detenerse?",
         options: [
             "a) Aumentar su velocidad para encontrar pronto un lugar donde detenerse.",
@@ -943,7 +877,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "80.- ¿Qué consejo daría usted a un conductor que ha ingerido bebidas alcohólicas en una fiesta?",
         options: [
             "a) Que se vuelva a casa en taxi.",
@@ -954,7 +888,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "81.- Un conductor hace algo que a usted le molesta. ¿Qué debería hacer usted?",
         options: [
             "a) Hacerle saber cómo se siente.",
@@ -965,7 +899,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "82.- Usted está a punto de volver a casa conduciendo, pero no puede encontrar los anteojos que necesita usar para conducir. ¿Qué debería hacer usted?",
         options: [
             "a) Conducir a casa lentamente por calles tranquilas.",
@@ -976,7 +910,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "83.- Usted está a punto de conducir, pero se siente enfermo. Usted debería ...",
         options: [
             "a) tomar una medicina antes de conducir.",
@@ -987,7 +921,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "84.- En relación con el cansancio y la conducción, de las siguientes afirmaciones, ¿cuál es falsa?",
         options: [
             "a) El cansancio es una causa importante de los accidentes que se registran en carreteras.", // True
@@ -998,7 +932,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "85.- Usted comienza a sentir cansancio en un viaje. ¿Qué debería hacer?",
         options: [
             "a) Detenerse y comer una gran comida.",
@@ -1009,7 +943,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "86.- ¿Qué precauciones debe tomar un conductor cuando asiste a un evento social?",
         options: [
             "a) Beber bastante café después de ingerir bebidas alcohólicas.",
@@ -1020,7 +954,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "87.- De los siguientes efectos, ¿cuál no es consecuencia del consumo de alcohol antes de conducir?",
         options: [
             "a) Falsa sensación de confianza.",
@@ -1031,7 +965,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "88.- De las siguientes capacidades de un individuo, ¿cuál de ellas no se ve afectada por el consumo de alcohol?",
         options: [
             "a) La percepción de colores.", // Not typically affected directly, although overall perception is. Key says 'a'.
@@ -1042,7 +976,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "89.- El tiempo que transcurre desde que usted percibe un peligro hasta que actúa se denomina tiempo de reacción. En una emergencia, ¿qué factor influye en su tiempo de reacción?.",
         options: [
             "a) Su estado de salud.",
@@ -1053,7 +987,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "90.- ¿Cuándo es más probable que usted pierda concentración cuando conduce? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Cuando hace funcionar los limpiaparabrisas.",
@@ -1065,7 +999,7 @@
         correctAnswer: ["c", "d", "e"],
         points: 3
     },
-{
+    {
         question: "91.- ¿Qué debería hacer el conductor del auto señalado con la flecha?", // Image missing in text source
         options: [
             "a) Detenerse y esperar a que el peatón cruce.",
@@ -1076,7 +1010,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "92.- ¿Cuáles son las 2 principales razones por las que no sería adecuado que usted adelantara al peatón en este momento? (Marque dos respuestas)", // Image missing in text source
         options: [
             "a) Podría ensuciar al peatón.",
@@ -1087,7 +1021,7 @@
         correctAnswer: ["c", "d"], // Key says c+d. Assumes a context where oncoming traffic or adjacent traffic is a risk.
         points: 2
     },
-{
+    {
         question: "93.- En relación con los cruces ferroviarios a nivel, ¿cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Extrañamente, está permitido estacionar a 10 m de un cruce ferroviario a nivel.", // False, minimum is usually 20m.
@@ -1098,7 +1032,7 @@
         correctAnswer: ["b", "c"],
         points: 2
     },
-{
+    {
         question: "94.- En esta ocasión usted va conduciendo a 70 km/h. ¿Qué hace usted? (Marque dos respuestas)", // Image missing in text source
         options: [
             "a) Frena en seco.",
@@ -1109,7 +1043,7 @@
         correctAnswer: ["c", "d"], // Key says c+d. Assuming the image shows a situation requiring slight speed reduction but maintaining course.
         points: 2
     },
-{
+    {
         question: "95.- Al aproximarse a una curva hacia la izquierda usted debería mantenerse bien a la derecha. ¿Por qué?",
         options: [
             "a) Para superar el efecto de pendiente de la calzada.",
@@ -1120,7 +1054,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "96.- Usted conduce por una vía rápida en muy buenas condiciones. Por seguridad, ¿qué distancia debería mantener usted respecto del vehículo que va delante suyo?",
         options: [
             "a) Un espacio equivalente al que usted recorre en 3 segundos.", // Standard recommendation.
@@ -1131,7 +1065,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "97.- Usted se aproxima a una curva hacia la izquierda. ¿Qué debería hacer?",
         options: [
             "a) Mantenerse bien a la derecha ya que así tardará menos en pasar la curva.",
@@ -1142,7 +1076,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "98.- Usted conduce a 90 km/h. En condiciones normales, ¿cuál es la distancia mínima de seguridad que usted debería mantener respecto del vehículo que va adelante?",
         options: [
             "a) Unos 75 metros", // Calculation: 3-second rule at 90 km/h (25 m/s) = 75 meters.
@@ -1153,7 +1087,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "99.- Mire el dibujo. ¿Cuál es el peligro al que usted debe estar más atento(a)?", // Image missing in text source
         options: [
             "a) El niño puede cruzar corriendo.", // Key says 'a'. Assumes image shows a child near an ice cream truck or similar situation.
@@ -1164,7 +1098,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "100.- Usted pretende doblar hacia la izquierda en un cruce, pero hay vehículos estacionados que le obstruyen la visual. ¿Qué debería hacer usted?",
         options: [
             "a) Avanzar rápidamente, pero estando preparado para detenerse.",
@@ -1175,7 +1109,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "101.- Usted va conduciendo al lado de una fila de autos estacionados. De pronto ve una pelota rebotando en la calzada un poco más adelante. ¿Qué debería hacer usted?", // Image missing in text source
         options: [
             "a) Continuar a la misma velocidad, tocando la bocina.",
@@ -1186,7 +1120,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "102.- Al adelantar a animales que van por el camino, usted no debería...",
         options: [
             "a) acelerar el motor o tocar la bocina.",
@@ -1197,7 +1131,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "103.- Al adelantar en un camino a una manada de ovejas, ¿qué hace usted? (Marque tres respuestas)",
         options: [
             "a) Deja un espacio lateral suficiente.",
@@ -1209,7 +1143,7 @@
         correctAnswer: ["a", "c", "e"],
         points: 3
     },
-{
+    {
         question: "104.- Usted va conduciendo por una calle de dos pistas y de doble sentido de tránsito en la cual hay vehículos estacionados al costado derecho. ¿Por cuáles 3 razones usted debe disminuir su velocidad? (Marque tres respuestas)",
         options: [
             "a) Pueden salir vehículos de su estacionamiento.",
@@ -1221,7 +1155,7 @@
         correctAnswer: ["a", "b", "e"],
         points: 3
     },
-{
+    {
         question: "105.- Usted está esperando en un cruce en T. El vehículo azul que se acerca desde la izquierda señaliza a la derecha. ¿Qué debería hacer usted?", // Image missing in text source
         options: [
             "a) Avanzar acelerando a fondo.",
@@ -1232,7 +1166,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "106.- Usted se ha quedado detenido justo al medio de un cruce ferroviario con sistema automático de señales y barreras y no puede echar a andar el motor nuevamente. La campanilla del cruce comienza a sonar. ¿Qué debería hacer usted?", // Image missing in text source
         options: [
             "a) Correr por la vía para intentar avisar al maquinista.",
@@ -1243,7 +1177,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "107.- ¿A qué debe estar especialmente atento el conductor del vehículo indicado con la flecha? (Marque tres respuestas)", // Image missing in text source
         options: [
             "a) Irregularidades de la superficie de calzada.",
@@ -1256,7 +1190,7 @@
         correctAnswer: ["b", "c", "e"],
         points: 3
     },
-{
+    {
         question: "108.- ¿Qué debería hacer el conductor del auto indicado con la flecha?", // Image missing in text source
         options: [
             "a) Hacer señas con la mano a los peatones que están esperando poder cruzar.",
@@ -1267,7 +1201,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "109.- ¿Qué debería hacer el conductor del auto señalado con la flecha?", // Image missing in text source
         options: [
             "a) Retroceder para salir del cruce.",
@@ -1278,7 +1212,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "110.- ¿Cuál es el principal peligro cuando usted sobrepasa al bus que está detenido en la parada?", // Image missing in text source
         options: [
             "a) Que usted debe ceder el paso al bus si éste se pone en marcha.",
@@ -1289,7 +1223,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "111.- ¿Qué significa la señal que está efectuando el camión?", // Image missing in text source
         options: [
             "a) El camión va a disminuir la velocidad y va a detenerse.",
@@ -1300,7 +1234,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "112.- ¿Qué debe hacer usted cuando va en una fila de autos? (Marque tres respuestas)", // Image missing in text source
         options: [
             "a) Debe concentrarse sólo en el vehículo que va inmediatamente delante suyo.",
@@ -1312,7 +1246,7 @@
         correctAnswer: ["b", "c", "d"],
         points: 3
     },
-{
+    {
         question: "113.- ¿Hacia dónde es más importante que usted mire en este momento?", // Image missing in text source
         options: [
             "a) A",
@@ -1323,7 +1257,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "114.- En esta situación, ¿a cuáles 3 riesgos debe estar usted principalmente atento? (Marque tres respuestas)", // Image missing in text source
         options: [
             "a) Al ciclista que viene en sentido contrario.",
@@ -1336,7 +1270,7 @@
         correctAnswer: ["a", "c", "d"], // Key says a, c, d. Assumes a street scene with parked cars, oncoming cyclist.
         points: 3
     },
-{
+    {
         question: "115.- Usted va conduciendo a 70 km/h que es la velocidad máxima permitida en esta vía. ¿Qué hace en esta situación? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             "a) Está preparado para actuar ya que alguien puede salir corriendo a la calzada.",
@@ -1347,7 +1281,7 @@
         correctAnswer: ["a", "b"], // Key says a+b. Assumes image shows a bus stop with people nearby.
         points: 2
     },
-{
+    {
         question: "116.- ¿Qué hace usted ante esta situación?", // Image missing in text source
         options: [
             "a) Hace señales a los peatones para que se alejen de la calzada.",
@@ -1358,7 +1292,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "117.- Mientras va conduciendo su vehículo usted siente que lo están llamando a su teléfono celular, ¿qué hace usted para responder la llamada?",
         options: [
             "a) Reduce su velocidad.",
@@ -1369,7 +1303,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "118.- Usted debería utilizar su teléfono celular en su automóvil sólo en la siguiente situación:",
         options: [
             "a) Si su vehículo tiene cambio automático.",
@@ -1380,7 +1314,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "119.- En un camino muy transitado usted desea adelantar a un camión con remolque que va lentamente delante suyo, ¿qué debería hacer usted?",
         options: [
             "a) Mantenerse bien atrás del camión hasta que pueda ver que tiene espacio suficiente como para adelantarlo.",
@@ -1391,7 +1325,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "120.- La mayor parte de los accidentes de tránsito se produce en:",
         options: [
             "a) Carreteras",
@@ -1402,7 +1336,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "121.- Entre los accidentes de tránsito se distinguen distintos tipos de éstos. En Chile, ¿cuál es el tipo de accidente que origina la mayor cantidad de muertos?",
         options: [
             "a) Los choques contra obstáculos fijos.",
@@ -1413,7 +1347,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "122.- Al estar estacionado, ¿qué debería hacer usted justo antes de poner su vehículo en movimiento?",
         options: [
             "a) Ajustar sus espejos.",
@@ -1424,7 +1358,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "123.- Las fotografías muestran una secuencia cronológica de imágenes. ¿Cuáles son las 2 principales causas por las que surge esta situación de peligro? (Marque dos respuestas)", // Image missing in text source
         options: [
             "a) Por adelantar en un lugar prohibido.",
@@ -1435,7 +1369,7 @@
         correctAnswer: ["a", "d"], // Key says a+d. Assumes image shows illegal overtaking coinciding with a vehicle entering incorrectly.
         points: 2
     },
-{
+    {
         question: "124.- Usted llega a una intersección regulada por semáforo que se encuentra en rojo y, al mismo tiempo, un Carabinero le indica que avance, ¿qué debe hacer usted?",
         options: [
             "a) Detenerse, porque la luz roja se lo está indicando.",
@@ -1446,7 +1380,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "125.- ¿En qué situación puede usted hacer uso de la bocina de su vehículo?",
         options: [
             "a) Cuando cede a otro el derecho a vía.",
@@ -1457,7 +1391,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "126.- ¿Cuándo puede usted hacer sonar la bocina de su auto?",
         options: [
             "a) Para llamar la atención de un amigo.",
@@ -1468,7 +1402,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "127.- Usted se va acercando a un cruce semaforizado. ¿Cuándo no debe usted ingresar al cruce aunque el semáforo esté en verde?",
         options: [
             "a) Cuando hay peatones esperando para cruzar.",
@@ -1479,7 +1413,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "128.- Fuera de la ciudad, usted va por una carretera de doble calzada con dos pistas por sentido. La velocidad máxima permitida es de 100 km/hr. Si usted va a 90 km/hr y no van vehículos delante suyo, ¿por cuál pista circula usted?",
         options: [
             "a) Por la pista de la izquierda.",
@@ -1489,7 +1423,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "129.- En una carretera de doble calzada con dos pistas por sentido, ¿en cuáles 2 de las siguientes situaciones usted usaría la pista izquierda? (Marque dos respuestas)",
         options: [
             "a) Cuando va a virar a la izquierda.", // Or exiting left.
@@ -1500,7 +1434,7 @@
         correctAnswer: ["a", "b"],
         points: 2
     },
-{
+    {
         question: "130.- ¿En qué situación retrocede usted con su vehículo en un cruce?",
         options: [
             "a) Si no hay nadie detrás suyo.",
@@ -1511,7 +1445,7 @@
         correctAnswer: "d", // Key says d. While 'b' is the general rule, 'd' is the exception allowed.
         points: 1
     },
-{
+    {
         question: "131.- Usted se aproxima a un cruce de calles no señalizado. Por la otra calle también se aproxima un vehículo que pretende pasar el cruce. ¿Quién tiene la prioridad para pasar?",
         options: [
             "a) El vehículo más grande.",
@@ -1522,7 +1456,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "132.- Cuando dos vehículos van a cruzarse en una intersección en la que no hay señalización alguna, ¿quién debe ceder el paso?",
         options: [
             "a) El vehículo más pequeño.",
@@ -1533,7 +1467,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "133.- ¿Es seguro permitir que los niños viajen en un vehículo de 3 o 5 puertas en el espacio que queda detrás de los asientos traseros?",
         options: [
             "a) No, en ninguna circunstancia.", // Cargo area is unsafe.
@@ -1544,7 +1478,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "134.- ¿Cuáles son las 2 formas más seguras para transportar una guagua en su automóvil? (Marque dos respuestas)",
         options: [
             "a) En brazos de un adulto que va con cinturón de seguridad.",
@@ -1556,7 +1490,7 @@
         correctAnswer: ["d", "e"],
         points: 2
     },
-{
+    {
         question: "135.- ¿Cuál es la forma más segura para llevar a un niño de 3 ó 4 años en su vehículo?",
         options: [
             "a) En la falda de un adulto compartiendo un mismo cinturón de seguridad.",
@@ -1567,7 +1501,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "136.- La forma más segura de viajar en un automóvil para un niño menor de 2 años es:",
         options: [
             "a) En brazos de un adulto.",
@@ -1578,7 +1512,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "137.- En un vehículo de 3 o 5 puertas, ¿en qué condiciones sería seguro transportar niños pequeños en el espacio que queda detrás de los asientos traseros?",
         options: [
             "a) Al efectuar un viaje corto dentro de la ciudad.",
@@ -1589,7 +1523,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "138.- Usted está en una calle de un solo sentido de tránsito y desea virar a la izquierda. ¿Cuál o cuáles de las siguientes afirmaciones es(son) correcta(s)? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             "a) Usted está bien situado para virar a la izquierda.", // Assumes car is in leftmost lane.
@@ -1600,7 +1534,7 @@
         correctAnswer: ["a", "b"], // Key says a+b.
         points: 2
     },
-{
+    {
         question: "139.- ¿En cuál o cuáles de las siguientes situaciones puede usted virar a la izquierda sin que siempre deba detenerse antes?", // Image missing in text source
         options: [
             // Assuming images show: a) Green arrow left, b) Flashing yellow arrow left, c) Solid green light (yield), d) Red light.
@@ -1612,7 +1546,7 @@
         correctAnswer: ["a", "b", "d"], // Key says a, b, d. Re-evaluating: 'd' likely represents a 'CEDA EL PASO' sign where stop isn't mandatory if clear. Let's assume the images were (a) Green Arrow, (b) Flashing Yellow Arrow, (d) Yield Sign.
         points: 3
     },
-{
+    {
         question: "140.- ¿Frente a cuál o cuáles de las siguientes señales e indicaciones del semáforo debe usted detenerse siempre? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             // Assuming images show: a) Flashing red light, b) Red light, c) Yellow light, d) PARE sign.
@@ -1624,7 +1558,7 @@
         correctAnswer: ["b", "d"], // Key says b+d. Solid Red and Stop Sign always require a stop. Flashing red also requires stop, but maybe not included in key.
         points: 2
     },
-{
+    {
         question: "141.- Usted va por una calle de doble sentido de tránsito. Para virar a la izquierda, ¿dónde debería ubicarse?",
         options: [
             "a) Lo más a la derecha posible.",
@@ -1634,7 +1568,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "142.- Usted va detrás de un camión articulado que va a doblar a la derecha hacia una vía angosta. ¿Qué debe hacer usted?", // Image missing in text source
         options: [
             "a) Desplazarse rápidamente hacia la pista adyacente y sobrepasarlo.",
@@ -1645,7 +1579,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "143.- ¿Cómo señaliza usted con el brazo cuando va a virar hacia la derecha?", // Image missing in text source
         options: [
             // Assuming images show standard arm signals: a) Arm straight out, b) Arm up, c) Arm down.
@@ -1656,7 +1590,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "144.- ¿Cuál señalización con el brazo del conductor de un vehículo que va adelante le indica que va a virar a la izquierda?", // Image missing in text source
         options: [
             // Assuming images show standard arm signals: a) Arm straight out, b) Arm up, c) Arm down.
@@ -1667,7 +1601,7 @@
         correctAnswer: "c", // Sticking to key, although standard is 'a'.
         points: 1
     },
-{
+    {
         question: "145.- Usted ha alcanzado a un auto al que desea adelantar. ¿Cuáles son las 3 cosas más difíciles de juzgar? (Marque tres respuestas)",
         options: [
             "a) La velocidad del auto al que desea adelantar.",
@@ -1679,7 +1613,7 @@
         correctAnswer: ["c", "d", "e"],
         points: 3
     },
-{
+    {
         question: "146.- Usted va conduciendo su vehículo a 90 km/h que es la velocidad máxima permitida en esa vía. ¿Qué hace usted si a pesar de todo un vehículo desea adelantarlo? (Marque dos respuestas)", // Image missing in text source
         options: [
             "a) Conduce lo más a la derecha posible.",
@@ -1690,7 +1624,7 @@
         correctAnswer: ["a", "d"],
         points: 2
     },
-{
+    {
         question: "147.- Usted va por una carretera a 100 km/h. ¿Qué hace usted si a pesar de todo un vehículo que viene atrás desea adelantarlo? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Acelera para impedir el adelantamiento.",
@@ -1702,7 +1636,7 @@
         correctAnswer: ["b", "c"],
         points: 2
     },
-{
+    {
         question: "148.- Usted desea adelantar. ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             "a) El camión tiene la obligación de correrse hacia la berma para dejarle a usted más espacio.",
@@ -1713,7 +1647,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "149.- Usted ha comenzado a adelantar. El auto de la derecha va a aproximadamente 80 km/h. Por su espejo retrovisor usted ve otro auto que tiene intención de adelantar. ¿Qué hace usted?", // Image missing in text source
         options: [
             "a) Frena ligeramente y vuelve a la pista derecha.", // Abort overtake if unsafe or another car is coming fast.
@@ -1724,7 +1658,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "150.- Antes de adelantar a un vehículo de gran tamaño usted debería mantenerse suficientemente atrás de él. ¿Por qué?",
         options: [
             "a) Para tener una mejor visual hacia adelante sobre la vía.",
@@ -1735,7 +1669,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "151.- ¿Por qué adelantar a un camión es más arriesgado que adelantar a un auto?",
         options: [
             "a) Porque los camiones pueden detenerse sorpresivamente.",
@@ -1746,7 +1680,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "152.- Usted está a punto de adelantar a un vehículo pesado. ¿Qué debería hacer?",
         options: [
             "a) Tocar la bocina para advertirle al conductor que usted está ahí.",
@@ -1757,7 +1691,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "153.- Usted va conduciendo de día por una zona rural. La calzada tiene pavimento en buen estado y tránsito bidireccional. A menos que alguna señal le indique otra cosa, usted no debe exceder los ...",
         options: [
             "a) 50 km/hr",
@@ -1768,7 +1702,7 @@
         correctAnswer: "d", // Sticking to key 'd'.
         points: 1
     },
-{
+    {
         question: "154.- Usted va conduciendo en la ciudad por una calle con 2 pistas en sentido único de tránsito. A menos que alguna señal le indique otra cosa, usted no debe exceder los ...",
         options: [
             "a) 30 km/hr",
@@ -1779,7 +1713,7 @@
         correctAnswer: "b", // Sticking to key 'b'.
         points: 1
     },
-{
+    {
         question: "155.- Como norma general, antes de tomar una curva cerrada, usted debe ...",
         options: [
             "a) acelerar para salir cuanto antes de ella.",
@@ -1790,7 +1724,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "156.- ¿En cuál o cuáles situaciones el vehículo está mal estacionado? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             // Assuming images show: a) Parking against traffic flow, b) Parking on a crosswalk, c) Correct parallel parking, d) Parking too far from curb.
@@ -1802,7 +1736,7 @@
         correctAnswer: ["a", "b"], // Key says a+b. Assuming A is against traffic, B is on crosswalk.
         points: 2
     },
-{
+    {
         question: "157.- ¿En cuál o cuáles de las siguientes situaciones el conductor se ha detenido correctamente para recoger un pasajero? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
         options: [
             // Assuming images show: a) Double parked, b) Stopped correctly at curb away from intersection/bus stop, c) Stopped in bus stop, d) Stopped correctly at curb away from intersection/bus stop.
@@ -1814,7 +1748,7 @@
         correctAnswer: ["b", "d"], // Key says b+d. Assuming B and D show correct stopping locations.
         points: 2
     },
-{
+    {
         question: "158.- Por una emergencia usted requiere estacionar de noche en una carretera sin alumbrado y con buenas bermas. ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Usted debe estacionar al costado izquierdo enfrentando la circulación.",
@@ -1825,7 +1759,7 @@
         correctAnswer: ["b", "c"], // Key says b+c. Park fully on shoulder if possible, lights on if obstructing or low visibility.
         points: 2
     },
-{
+    {
         question: "159.- ¿En cuál o cuáles de estos lugares podría el estacionamiento de su vehículo causar daño u obstrucción a otros usuarios de la vía? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Frente a una entrada de autos de una propiedad.",
@@ -1836,7 +1770,7 @@
         correctAnswer: ["a", "b", "c"],
         points: 3
     },
-{
+    {
         question: "160.- ¿En qué circunstancia usted se detendría justo sobre un cruce cebra existente a mitad de cuadra?",
         options: [
             "a) En ningún momento.",
@@ -1847,7 +1781,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "161.- Como regla general, ¿en cuál o cuáles de los siguientes lugares usted no debe estacionar? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) En una parada de buses.",
@@ -1860,7 +1794,7 @@
         correctAnswer: ["a", "c", "d", "f"],
         points: 4
     },
-{
+    {
         question: "162.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) correcta(s) tratándose de una vía urbana sin señales de tránsito que prohíban o autoricen el estacionamiento o la detención? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) Usted puede detenerse en doble fila sólo por el tiempo necesario para que bajen pasajeros de su auto.", // False, double parking prohibited.
@@ -1871,7 +1805,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "163.- Usted va a dejar su vehículo estacionado. ¿En qué caso puede dejarlo con el motor funcionando?",
         options: [
             "a) En ningún caso.", // Generally illegal and unsafe.
@@ -1882,7 +1816,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "164.- En una vía urbana de sentido único de tránsito, sin señalización que permita o prohíba el estacionamiento, ¿a qué lado puede estacionar?",
         options: [
             "a) A ambos lados.", // Usually allowed unless prohibited.
@@ -1893,7 +1827,7 @@
         correctAnswer: "c", // Sticking to key 'c'.
         points: 1
     },
-{
+    {
         question: "165.- ¿En cuáles 3 de las siguientes ocasiones debe usted detener siempre su vehículo? (Marque tres respuestas)",
         options: [
             "a) Al verse involucrado en un accidente.",
@@ -1905,7 +1839,7 @@
         correctAnswer: ["a", "c", "e"],
         points: 3
     },
-{
+    {
         question: "166.- ¿A cuántos metros de una esquina es lo más cerca que usted puede estacionar?", // Image missing in text source
         options: [
             "a) 5 metros",
@@ -1916,7 +1850,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "167.- Como regla general, ¿en cuál o cuáles de los siguientes lugares nunca debe estacionar? (Marque la o las respuesta(s) correcta(s))",
         options: [
             "a) En un paso de peatones.",
@@ -1928,7 +1862,7 @@
         correctAnswer: ["a", "b", "c", "e"],
         points: 4
     },
-{
+    {
         question: "168.- De noche, en una zona rural, por emergencia usted estaciona su vehículo al costado de la vía. ¿En qué circunstancia debe usted encender sus luces de estacionamiento?",
         options: [
             "a) Cuando la berma no es suficientemente ancha y parte del vehículo queda sobre la calzada.", // Correct, if obstructing or poor visibility.
@@ -1939,7 +1873,7 @@
         correctAnswer: "d", // Sticking to key 'd'.
         points: 1
     },
-{
+    {
         question: "169.- ¿Qué hace usted ante esta situación?", // Image missing in text source
         options: [
             "a) Continúa a la misma velocidad.",
@@ -1950,7 +1884,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "170.- Usted conduce a 90 km/h cuando la vía es obstruida sorpresivamente por un camión que está virando a la izquierda. ¿Qué es lo primero que hace usted?", // Image missing in text source
         options: [
             "a) Hace señales de luces y toca la bocina.",
@@ -1961,7 +1895,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "171.- ¿Adquiere usted un derecho sobre otros usuarios de la vía cuando utiliza sus luces indicadoras de viraje?", // Image missing in text source
         options: [
             "a) Sí, el usar las luces indicadoras de viraje le da a usted preferencia sobre los conductores que van en igual dirección a la suya.",
@@ -1972,7 +1906,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "172.- Usted se aproxima a un cruce cebra. En la vereda hay peatones esperando cruzar. ¿Qué hace usted?", // Image missing in text source
         options: [
             "a) Disminuye la velocidad y se prepara para detenerse.", // Must yield to pedestrians waiting at crosswalk.
@@ -1983,7 +1917,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "173.- Usted conduce un vehículo de marcha lenta por un camino angosto y sinuoso. En estas circunstancias, usted debería ...",
         options: [
             "a) circular cerca del centro de la calzada para evitar que otros lo adelanten peligrosamente.",
@@ -1994,7 +1928,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "174.- Usted está circulando por una vía rápida en buenas condiciones. ¿Cómo puede estar seguro de que lo hace a una distancia adecuada del vehículo que va adelante?",
         options: [
             "a) La distancia entre usted y el vehículo que va adelante debería ser dos veces el largo de su vehículo.",
@@ -2005,7 +1939,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "175.- El conductor detrás suyo le sigue muy de cerca. ¿Qué hace usted?",
         options: [
             "a) Señaliza a la derecha y le indica con lo mano para que lo adelante.",
@@ -2016,7 +1950,7 @@
         correctAnswer: "c", // Sticking to key 'c'.
         points: 1
     },
-{
+    {
         question: "176.- Un bus está detenido en una parada delante suyo. El intermitente izquierdo del bus está parpadeando. ¿Qué hace usted?", // Image missing in text source
         options: [
             "a) Hace parpadear sus luces delanteras y disminuye la velocidad.",
@@ -2027,7 +1961,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "177.- Usted va conduciendo en una carretera a la velocidad máxima permitida. El conductor que viene detrás suyo está tratando de adelantarlo. ¿Qué hace usted?",
         options: [
             "a) Se acerca más al vehículo de adelante para que el conductor que viene atrás no tenga espacio suficiente para el adelantamiento.",
@@ -2038,7 +1972,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "178.- Usted se está aproximando a un cruce cuando sorpresivamente un vehículo ingresa a la vía por la que usted va y se ubica delante suyo. ¿Qué hace usted?",
         options: [
             "a) Lo esquiva y toca la bocina.",
@@ -2049,7 +1983,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "179.- Usted va conduciendo a la velocidad máxima permitida. Un vehículo se acerca muy rápido por atrás encendiendo y apagando sus luces. ¿Qué hace usted?",
         options: [
             "a) Acelera para mantener un espacio adecuado detrás suyo.",
@@ -2060,7 +1994,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "180.- Un espacio entre usted y el vehículo que marcha delante igual a lo que usted recorre en tres segundos es suficiente cuando ...",
         options: [
             "a) las condiciones climáticas son buenas.", // 3 seconds is minimum for good conditions.
@@ -2071,7 +2005,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "181.- Usted está conduciendo al límite de la velocidad máxima permitida y un conductor intenta adelantarlo. ¿Trataría usted de evitar que lo adelante?",
         options: [
             "a) No, a menos que sea seguro hacerlo.",
@@ -2082,7 +2016,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "182.- De los siguientes factores, ¿cuál es el que con mayor frecuencia se presenta en las colisiones por la parte trasera?",
         options: [
             "a) El conducir demasiado cerca del vehículo que va adelante.", // Tailgating.
@@ -2093,7 +2027,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "183.- Usted está esperando poder incorporarse a una vía principal desde una calle lateral. ¿Por qué razón debería usted poner especial atención a las motocicletas?",
         options: [
             "a) Porque generalmente las motocicletas circulan más rápido que los autos.",
@@ -2104,7 +2038,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "184.- ¿Cuál de los siguientes grupos de conductores tiene mayores probabilidades de verse involucrado en un accidente de tránsito?",
         options: [
             "a) Los que tienen menos de 25 años.", // Young, inexperienced drivers statistically higher risk.
@@ -2115,7 +2049,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "185.- En una zona rural, usted va conduciendo por un camino muy angosto. ¿Dónde le resultaría más difícil ver personas a caballo que avanzan delante suyo?",
         options: [
             "a) Al ir usted bajando un cerro.",
@@ -2126,7 +2060,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "186.- Usted va detrás de un camión articulado que se aproxima a un cruce. Su conductor señaliza hacia la derecha pero el vehículo se desplaza hacia la izquierda. ¿Qué debe hacer usted?", // Image missing in text source
         options: [
             "a) Advertirle al conductor acerca de su señal equivocada.",
@@ -2137,7 +2071,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "187.- En una carretera de doble calzada con 2 pistas por sentido de tránsito, usted desea pasar al vehículo que va delante suyo. Por su espejo retrovisor ve que el auto que viene atrás se está cambiando de pista para sobrepasarlo a usted. ¿Qué debería hacer usted?",
         options: [
             "a) Señalizar y luego cambiar de pista para sobrepasar.",
@@ -2148,7 +2082,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "188.- Un vehículo emerge sorpresivamente desde una vía lateral situándose delante suyo y obligándolo a frenar fuertemente. ¿Qué hace usted?",
         options: [
             "a) Enciende y apaga sus luces para manifestarle su enojo.",
@@ -2159,7 +2093,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "189.- Usted se detiene ante un cruce cebra. En la vereda hay peatones esperando, pero ellos no comienzan a cruzar. ¿Qué hace usted?",
         options: [
             "a) Les toca la bocina para apurarlos.",
@@ -2170,7 +2104,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "190.- Cuando el viento sopla muy fuertemente usted necesita tener especial cuidado ...",
         options: [
             "a) al usar los frenos.",
@@ -2181,7 +2115,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "191.- En un cruce hay peatones atravesando la calle hacia la cual usted está virando. ¿Qué debe hacer usted?", // Image missing in text source
         options: [
             "a) Hacerles señas con la mano para que continúen.",
@@ -2192,7 +2126,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "192.- En un cruce hay peatones atravesando la calle hacia la cual usted está virando. ¿Qué hace usted?", // Image missing in text source
         options: [
             "a) Espera permitiéndoles que crucen.", // Pedestrians have priority.
@@ -2203,7 +2137,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "193.- ¿Dónde debe tener usted especial cuidado con los motociclistas?",
         options: [
             "a) En una estación de servicio.",
@@ -2214,7 +2148,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "194.- Cuando conduce en la ciudad ¿por qué razón debería usted tener cuidado al cruzarse con un bus que se encuentra detenido en una parada?",
         options: [
             "a) Porque el bus puede estar en pana.",
@@ -2225,7 +2159,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "195.- Usted se encuentra muy próximo a un cruce en el que pretende virar a la derecha. Delante suyo va un ciclista. ¿Qué hace usted?", // Image missing in text source
         options: [
             "a) Adelanta al ciclista antes del cruce.", // Dangerous, risk of cutting off cyclist.
@@ -2236,7 +2170,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "196.- Usted va conduciendo por un camino de doble tránsito cuando se encuentra con personas que van a caballo delante suyo. ¿Qué es lo primero que usted debería hacer?",
         options: [
             "a) Desplazarse hacia el centro de la calzada.",
@@ -2247,7 +2181,7 @@
         correctAnswer: "d",
         points: 1
     },
-{
+    {
         question: "197.- ¿Cómo debería usted adelantar a personas que van a caballo?",
         options: [
             "a) Conduciendo lentamente y dejando bastante espacio lateral.", // Pass wide and slow.
@@ -2258,7 +2192,7 @@
         correctAnswer: "a",
         points: 1
     },
-{
+    {
         question: "198.- Usted va circulando a 65 km/h aproximadamente cuando, lamentablemente, atropella a un peatón. A esa velocidad, ....",
         options: [
             "a) es seguro que el peatón morirá.",
@@ -2269,7 +2203,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+    {
         question: "199.- Usted desea adelantar a un motociclista que va delante suyo, ¿qué hace usted?",
         options: [
             "a) Trata de pasarlo en una curva.",
@@ -2280,7 +2214,7 @@
         correctAnswer: "c",
         points: 1
     },
-{
+    {
         question: "200.- Usted va siguiendo a un automóvil que es conducido por una persona de edad. Usted debería ...",
         options: [
             "a) dar por seguro que el conductor manejará muy mal.",
@@ -2291,7 +2225,7 @@
         correctAnswer: "b",
         points: 1
     },
-{
+        {
             question: "201.- ¿Qué debería hacer usted si es encandilado por las luces de un vehículo que se aproxima?",
             options: [
                 "a) Bajar su visor de protección solar.",
@@ -2302,7 +2236,7 @@
             correctAnswer: "b", // Answer from PDF page 47: 201. b)
             points: 1
         },
-{
+        {
             question: "202.- ¿Cuál es el principal peligro cuando usted sobrepasa al bus que se muestra en la fotografía?",
             options: [
                 "a) Que el bus puede ponerse en marcha repentinamente.",
@@ -2313,7 +2247,7 @@
             correctAnswer: "d", // Answer from PDF page 47: 202. d)
             points: 1
         },
-{
+        {
             question: "203.- Usted está esperando en un cruce en T. El vehículo azul que se acerca desde la izquierda señaliza a la derecha. ¿Qué debería hacer usted?",
             options: [
                 "a) Avanzar asegurándose que el vehículo azul vaya a virar.",
@@ -2324,7 +2258,7 @@
             correctAnswer: "c", // Answer from PDF page 47: 203. c)
             points: 1
         },
-{
+        {
             question: "204.- ¿Qué significa la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Angostamiento de la vía.",
@@ -2335,7 +2269,7 @@
             correctAnswer: "b", // Answer from PDF page 47: 204. b)
             points: 1
         },
-{
+        {
             question: "205.- ¿Qué significa la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a una zona donde es frecuente la presencia de niños.",
@@ -2346,7 +2280,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 205. a)
             points: 1
         },
-{
+        {
             question: "206.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)?",
             options: [
                 "a) Quien conduce a la defensiva conduce con prudencia.",
@@ -2357,7 +2291,7 @@
             correctAnswer: ["a", "d"], // Answer from PDF page 48: 206. a) y d)
             points: 2
         },
-{
+        {
             question: "207.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)?",
             options: [
                 "a) El conducir por un túnel es más riesgoso que conducir al aire libre por el mayor riesgo de incendio y por lo difícil que puede resultar el rescate de personas.",
@@ -2368,7 +2302,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 207. a) - Note: The PDF seems to have multiple correct options listed in the question text but only 'a' in the answer key. Assuming 'a' is the primary correct answer based on the key.
             points: 1
         },
-{
+        {
             question: "208.- ¿Qué significa la luz verde del semáforo?",
             options: [
                 "a) Indica vía libre.",
@@ -2379,7 +2313,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 208. a)
             points: 1
         },
-{
+        {
             question: "209.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s) en relación con la conducción nocturna en carreteras y autopistas?",
             options: [
                 "a) En la carretera usted no debe detenerse a descansar en la berma.",
@@ -2390,7 +2324,7 @@
             correctAnswer: ["a", "c", "d"], // Answer from PDF page 48: 209. b), c) y d) - Note: The answer key says b, c, d but option 'a' seems correct and 'b' incorrect based on general rules. Using the key's answer.
             points: 3
         },
-{
+        {
             question: "210.- ¿Cuándo debe usar usted las luces bajas en carreteras?",
             options: [
                 "a) Cuando viene tráfico en contra.",
@@ -2401,7 +2335,7 @@
             correctAnswer: ["a", "b"], // Answer from PDF page 48: 210. a) y b)
             points: 2
         },
-{
+        {
             question: "211.- ¿Cuál o cuáles de las siguientes afirmaciones es(son) correcta(s) en cuanto a la conducción bajo la lluvia?",
             options: [
                 "a) Cuando los neumáticos son nuevos no hay riesgo de que éstos patinen a consecuencia del agua en la calzada.",
@@ -2412,7 +2346,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 211. b)
             points: 1
         },
-{
+        {
             question: "212.- ¿Cuáles son las 2 causas más comunes de los resbalones ante la existencia de agua en la calzada?",
             options: [
                 "a) Frenos en mal estado.",
@@ -2423,7 +2357,7 @@
             correctAnswer: ["b", "c"], // Answer from PDF page 48: 212. b) y c)
             points: 2
         },
-{
+        {
             question: "213.- ¿Cuándo es más probable que un conductor subestime su propia velocidad?",
             options: [
                 "a) Al conducir en una autopista.",
@@ -2434,7 +2368,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 213. d)
             points: 1
         },
-{
+        {
             question: "214.- ¿Qué es lo más seguro que usted debería hacer en caso de niebla?",
             options: [
                 "a) Usar luces altas para poder ver mejor.",
@@ -2445,7 +2379,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 214. d)
             points: 1
         },
-{
+        {
             question: "215.- Usted va a 70 km/h. ¿Qué distancia recorrerá su vehículo en los 3 segundos que le toma decidir qué hacer ante una situación imprevista?",
             options: [
                 "a) Unos 60 metros.",
@@ -2456,7 +2390,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 215. a) (Calculation: 70 km/h ≈ 19.4 m/s. 19.4 m/s * 3 s ≈ 58.2 m)
             points: 1
         },
-{
+        {
             question: "216.- ¿Qué podría hacerlo patinar la dirección de su vehículo?",
             options: [
                 "a) Conducir a exceso de velocidad en una curva.",
@@ -2467,7 +2401,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 216. a)
             points: 1
         },
-{
+        {
             question: "217.- ¿Qué medidas debe adoptar usted para mejorar la adherencia y evitar el patinaje de las ruedas cuando hay nieve?",
             options: [
                 "a) Poner cadenas en las ruedas traseras, si el vehículo tiene tracción trasera.",
@@ -2478,7 +2412,7 @@
             correctAnswer: ["a", "b", "c"], // Answer from PDF page 48: 217. a), b) y c)
             points: 3
         },
-{
+        {
             question: "218.- ¿Qué hace usted si se le revienta un neumático trasero?",
             options: [
                 "a) Frena fuerte y enciende las luces de advertencia de peligro.",
@@ -2489,7 +2423,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 218. b)
             points: 1
         },
-{
+        {
             question: "219.- ¿Qué debe hacer usted si mientras va conduciendo se le revienta un neumático delantero?",
             options: [
                 "a) Frenar brusca y rápidamente.",
@@ -2500,7 +2434,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 219. b)
             points: 1
         },
-{
+        {
             question: "220.- ¿Qué es lo primero que usted debería hacer si fallan sus frenos?",
             options: [
                 "a) Tirar del freno de mano.",
@@ -2511,7 +2445,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 220. b)
             points: 1
         },
-{
+         {
             question: "221.- ¿Cuál es la forma más eficaz de ahorrar combustible?",
             options: [
                 "a) Evitando acelerar bruscamente.",
@@ -2522,7 +2456,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 221. c)
             points: 1
         },
-{
+        {
             question: "222.- ¿Qué precauciones debe tomar un conductor cuando circula por una calle cubierta con hielo?",
             options: [
                 "a) Conducir a baja velocidad.",
@@ -2533,7 +2467,7 @@
             correctAnswer: ["a", "b", "c"], // Answer from PDF page 48: 222. a), b) y c)
             points: 3
         },
-{
+        {
             question: "223.- Usted va conduciendo por un camino de montaña con muchas curvas. ¿Qué es lo más importante que debe hacer?",
             options: [
                 "a) Mantenerse lo más a la derecha posible.",
@@ -2544,7 +2478,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 223. c)
             points: 1
         },
-{
+        {
             question: "224.- Cuando hay nieve lo mejor es conducir manteniéndose en la marcha más alta posible. ¿Por qué es esto?",
             options: [
                 "a) Para reducir rápidamente la velocidad al frenar.",
@@ -2555,7 +2489,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 224. c)
             points: 1
         },
-{
+        {
             question: "225.- ¿Cuál es la principal razón por la cual su distancia de detención total es mayor después de una lluvia torrencial?",
             options: [
                 "a) Porque puede que usted no vea las pozas grandes.",
@@ -2566,7 +2500,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 225. c)
             points: 1
         },
-{
+        {
             question: "226.- En una ocasión de mucha neblina usted va detrás de otros vehículos y lleva encendidas sus luces bajas. ¿De qué otra forma puede reducir las probabilidades de verse involucrado en un accidente?",
             options: [
                 "a) Usando sus luces altas en vez de bajas.",
@@ -2577,7 +2511,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 226. b)
             points: 1
         },
-{
+        {
             question: "227.- En un pavimento mojado usted va circulando detrás de un vehículo manteniéndose a una distancia segura de él. De pronto es adelantado por otro vehículo que se ubica en el espacio que usted había dejado. ¿Qué debería hacer usted?",
             options: [
                 "a) Encender sus luces de advertencia de peligro.",
@@ -2588,7 +2522,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 227. c)
             points: 1
         },
-{
+        {
             question: "228.- ¿Qué significa un semáforo en amarillo?",
             options: [
                 "a) Que usted debe prepararse para continuar.",
@@ -2599,7 +2533,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 228. b)
             points: 1
         },
-{
+        {
             question: "229.- ¿Qué significa la luz roja intermitente de un semáforo?",
             options: [
                 "a) Que usted debe detenerse y esperar a que cambie a verde.",
@@ -2610,7 +2544,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 229. b)
             points: 1
         },
-{
+        {
             question: "230.- ¿Qué significa una flecha verde en un semáforo?",
             options: [
                 "a) Que usted puede avanzar en la dirección indicada por la flecha, cualquiera que sea el color de la luz principal del semáforo.",
@@ -2621,7 +2555,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 230. a)
             points: 1
         },
-{
+        {
             question: "231.- ¿Qué debe hacer usted cuando enfrenta esta señal?",
             options: [
                 "a) Detenerse sólo si viene algún vehículo por la otra vía.",
@@ -2632,7 +2566,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 231. c)
             points: 1
         },
-{
+        {
             question: "232.- ¿Qué debe hacer usted cuando enfrenta una señal PARE?",
             options: [
                 "a) Detenerse sólo si en la otra vía vienen vehículos.",
@@ -2643,7 +2577,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 232. b)
             points: 1
         },
-{
+        {
             question: "233.- ¿Qué significa esta señal?",
             options: [
                 "a) No entrar.",
@@ -2654,7 +2588,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 233. c)
             points: 1
         },
-{
+        {
             question: "234.- ¿Qué significa esta señal?",
             options: [
                 "a) No adelantar.",
@@ -2665,7 +2599,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 234. a)
             points: 1
         },
-{
+        {
             question: "235.- ¿Qué significa esta señal?",
             options: [
                 "a) Dirección obligada.",
@@ -2676,7 +2610,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 235. c)
             points: 1
         },
-{
+        {
             question: "236.- ¿Qué significa esta señal?",
             options: [
                 "a) Cruce ferroviario.",
@@ -2687,7 +2621,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 236. a)
             points: 1
         },
-{
+        {
             question: "237.- ¿Qué significa esta señal?",
             options: [
                 "a) Inicio de autopista.",
@@ -2698,7 +2632,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 237. b)
             points: 1
         },
-{
+        {
             question: "238.- ¿Qué significa esta señal?",
             options: [
                 "a) Zona de escuela.",
@@ -2709,7 +2643,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 238. d)
             points: 1
         },
-{
+        {
             question: "239.- ¿Qué significa esta señal?",
             options: [
                 "a) Aeropuerto.",
@@ -2720,7 +2654,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 239. b)
             points: 1
         },
-{
+        {
             question: "240.- ¿Qué precaución debe tomar usted al cargar un remolque que va a arrastrar con su automóvil?",
             options: [
                 "a) Que el mayor peso se concentre en la parte trasera.",
@@ -2731,7 +2665,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 240. c)
             points: 1
         },
-{
+        {
             question: "241.- En una carretera de doble calzada y de mucho tránsito, usted está siendo seguido muy de cerca por un vehículo que viene atrás. ¿Qué hace usted?",
             options: [
                 "a) Se desplaza hacia la pista de la derecha tan pronto pueda hacerlo en forma segura.",
@@ -2742,7 +2676,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 241. a)
             points: 1
         },
-{
+        {
             question: "242.- ¿Qué significa la demarcación que se ve en la fotografía?",
             options: [
                 "a) Que es una parada de locomoción colectiva.",
@@ -2753,7 +2687,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 242. c)
             points: 1
         },
-{
+        {
             question: "243.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que usted no debe exceder la velocidad indicada.",
@@ -2764,7 +2698,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 243. a)
             points: 1
         },
-{
+        {
             question: "244.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que usted no debe virar a la derecha.",
@@ -2775,7 +2709,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 244. b)
             points: 1
         },
-{
+        {
             question: "245.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que usted debe detenerse.",
@@ -2786,7 +2720,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 245. b)
             points: 1
         },
-{
+        {
             question: "246.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un cruce donde tiene preferencia.",
@@ -2797,7 +2731,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 246. a)
             points: 1
         },
-{
+        {
             question: "247.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un cruce de calles.",
@@ -2808,7 +2742,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 247. c)
             points: 1
         },
-{
+        {
             question: "248.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un sector de curvas.",
@@ -2819,7 +2753,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 248. b)
             points: 1
         },
-{
+        {
             question: "249.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un sector de curvas.",
@@ -2830,7 +2764,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 249. d)
             points: 1
         },
-{
+        {
             question: "250.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un sector donde es frecuente la presencia de animales.",
@@ -2841,7 +2775,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 250. c)
             points: 1
         },
-{
+        {
             question: "251.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
             options: [
                 "a) Que se acerca a un lugar donde pueden haber peatones en la vía.",
@@ -2852,7 +2786,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 251. a)
             points: 1
         },
-{
+        {
             question: "252.- ¿Qué indican las flechas demarcadas en la pista por la que usted va?",
             options: [
                 "a) Que está permitido seguir derecho o virar a la derecha.",
@@ -2863,7 +2797,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 252. a)
             points: 1
         },
-{
+        {
             question: "253.- ¿Qué indica la demarcación que se observa en la fotografía?",
             options: [
                 "a) Zona de estacionamiento permitido.",
@@ -2874,7 +2808,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 253. c)
             points: 1
         },
-{
+        {
             question: "254.- ¿Qué indica la demarcación de centro de calzada que se muestra en la figura?",
             options: [
                 "a) Que no puede ser traspasada por un conductor que viene por la pista A.",
@@ -2885,7 +2819,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 254. a)
             points: 1
         },
-{
+        {
             question: "255.- ¿Qué indica la demarcación de centro de calzada que se muestra en la figura?",
             options: [
                 "a) Que no puede ser traspasada por un conductor que viene por la pista A.",
@@ -2896,7 +2830,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 255. b)
             points: 1
         },
-{
+        {
             question: "256.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Que existe un cruce peligroso.",
@@ -2907,7 +2841,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 256. b)
             points: 1
         },
-{
+        {
             question: "257.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Una parada de buses.",
@@ -2918,7 +2852,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 257. c)
             points: 1
         },
-{
+        {
             question: "258.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Una ciclovía.",
@@ -2929,7 +2863,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 258. a)
             points: 1
         },
-{
+        {
             question: "259.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Que se acerca a un cruce ferroviario.",
@@ -2940,7 +2874,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 259. a)
             points: 1
         },
-{
+        {
             question: "260.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Que usted debe ceder el paso.",
@@ -2951,7 +2885,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 260. a)
             points: 1
         },
-{
+        {
             question: "261.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Que usted debe ceder el paso.",
@@ -2962,7 +2896,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 261. b)
             points: 1
         },
-{
+        {
             question: "262.- ¿Qué indica la demarcación que se muestra en la figura?",
             options: [
                 "a) Que es una zona de estacionamiento permitido.",
@@ -2973,7 +2907,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 262. c)
             points: 1
         },
-{
+        {
             question: "263.- El vehículo indicado con la flecha se encuentra detenido sobre una zona achurada esperando poder efectuar un viraje en U, ¿es esto correcto?",
             options: [
                 "a) Sí, la zona achurada sólo separa sentidos de circulación.",
@@ -2984,7 +2918,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 263. c)
             points: 1
         },
-{
+        {
             question: "264.- ¿Qué indican las tachas rojas?",
             options: [
                 "a) La separación de pistas de circulación en un mismo sentido.",
@@ -2995,7 +2929,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 264. b)
             points: 1
         },
-{
+        {
             question: "265.- ¿Qué indican las tachas amarillas?",
             options: [
                 "a) La separación de pistas de circulación en un mismo sentido.",
@@ -3006,7 +2940,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 265. d)
             points: 1
         },
-{
+        {
             question: "266.- ¿Qué indican las tachas blancas?",
             options: [
                 "a) La separación de pistas de circulación en un mismo sentido.",
@@ -3017,7 +2951,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 266. a)
             points: 1
         },
-{
+        {
             question: "267.- ¿Qué debe hacer usted al encontrarse con esta señal?",
             options: [
                 "a) Detenerse y esperar a que el señalero le indique que puede pasar.",
@@ -3028,7 +2962,7 @@
             correctAnswer: "b", // Answer from PDF page 48: 267. b)
             points: 1
         },
-{
+        {
             question: "268.- ¿Qué debe hacer usted al encontrarse con esta señal?",
             options: [
                 "a) Detenerse y esperar a que el señalero le indique que puede pasar.",
@@ -3039,7 +2973,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 268. a)
             points: 1
         },
-{
+        {
             question: "269.- ¿Qué debe hacer usted al encontrarse con esta señal?",
             options: [
                 "a) Detenerse y esperar a que el señalero le indique que puede pasar.",
@@ -3050,7 +2984,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 269. c)
             points: 1
         },
-{
+        {
             question: "270.- ¿Qué debe hacer usted si presencia un accidente de tránsito?",
             options: [
                 "a) Detenerse y prestar ayuda a los heridos.",
@@ -3061,7 +2995,7 @@
             correctAnswer: ["a", "b"], // Answer from PDF page 48: 270. a) y b)
             points: 2
         },
-{
+        {
             question: "271.- ¿Qué debe hacer usted si es el primero en llegar al sitio de un accidente?",
             options: [
                 "a) Encender sus luces de advertencia de peligro para alertar a los demás conductores.",
@@ -3072,7 +3006,7 @@
             correctAnswer: ["a", "b", "c", "d"], // Answer from PDF page 48: 271. a), b), c) y d)
             points: 4
         },
-{
+        {
             question: "272.- ¿Qué información importante debe entregar usted al llamar a los servicios de emergencia en caso de accidente?",
             options: [
                 "a) El lugar exacto del accidente.",
@@ -3083,7 +3017,7 @@
             correctAnswer: ["a", "b", "c", "d"], // Answer from PDF page 48: 272. a), b), c) y d)
             points: 4
         },
-{
+        {
             question: "273.- ¿Qué debe hacer usted si un herido en un accidente está sangrando abundantemente por una herida en una pierna?",
             options: [
                 "a) Aplicar presión manual firme sobre la herida con un paño limpio.",
@@ -3094,7 +3028,7 @@
             correctAnswer: ["a", "b"], // Answer from PDF page 48: 273. a) y b)
             points: 2
         },
-{
+        {
             question: "274.- ¿Qué debe hacer usted si un herido en un accidente está inconsciente y no respira?",
             options: [
                 "a) Realizar reanimación cardiopulmonar (RCP).",
@@ -3105,7 +3039,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 274. a)
             points: 1
         },
-{
+        {
             question: "275.- ¿Qué debe hacer usted si un herido en un accidente tiene una quemadura grave?",
             options: [
                 "a) Cubrir la quemadura con un paño limpio y húmedo.",
@@ -3116,7 +3050,7 @@
             correctAnswer: "a", // Answer from PDF page 48: 275. a)
             points: 1
         },
-{
+        {
             question: "276.- Usted va por una autopista. De un camión cargado que va delante suyo cae una caja sin que su conductor se dé cuenta. ¿Qué hace usted?",
             options: [
                 "a) Trata de alcanzar al camión y de llamar la atención de su conductor.",
@@ -3127,7 +3061,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 276. d)
             points: 1
         },
-{
+        {
             question: "277.- ¿Quién o quiénes están cubiertos por el Seguro Obligatorio de Accidentes Personales?",
             options: [
                 "a) Sólo el conductor del vehículo asegurado.",
@@ -3138,7 +3072,7 @@
             correctAnswer: "d", // Answer from PDF page 48: 277. d)
             points: 1
         },
-{
+        {
             question: "278.- ¿Qué documento no está obligado a portar usted siempre en su vehículo?",
             options: [
                 "a) El Permiso de Circulación.",
@@ -3149,7 +3083,7 @@
             correctAnswer: "c", // Answer from PDF page 48: 278. c)
             points: 1
         },
-{
+        {
             question: "279.- ¿Cuál de las siguientes infracciones es gravísima y se sanciona con multa y suspensión de licencia?",
             options: [
                 "a) No respetar una señal PARE.",
@@ -3160,7 +3094,7 @@
             correctAnswer: ["a", "b", "c", "d"], // Answer from PDF page 48: 279. a), b), c) y d)
             points: 4 // Note: All listed are typically serious/very serious offenses. The key lists all.
         },
-{
+        {
             question: "280.- ¿Cuál de las siguientes conductas constituye una infracción gravísima a la Ley de Tránsito?",
             options: [
                 "a) Conducir un vehículo bajo la influencia del alcohol.",
@@ -3171,310 +3105,11 @@
             correctAnswer: "d", // Answer from PDF page 48: 280. d)
             points: 1
         }
-];
-
-        // --- Variables del Estado del Test Rápido ---
-        let currentQuizQuestions = []; // Array para las preguntas de la sesión actual
-        let currentQuestionIndex = 0;
-        let correctCount = 0;
-        let incorrectCount = 0;
-        let selectedOptionButton = null; // Para preguntas de respuesta única
-        let selectedOptions = [];      // Para preguntas de respuesta múltiple
-
-        // --- Elementos del DOM ---
-        const questionCounterEl = document.getElementById('question-counter');
-        const correctCountEl = document.getElementById('correct-count');
-        const incorrectCountEl = document.getElementById('incorrect-count');
-        const questionTextEl = document.getElementById('question-text');
-        const multiAnswerIndicatorEl = document.getElementById('multi-answer-indicator');
-        const optionsAreaEl = document.getElementById('options-area');
-        const feedbackAreaEl = document.getElementById('feedback-area');
-        const checkButton = document.getElementById('check-button');
-        const nextButton = document.getElementById('next-button');
-        const quizContainer = document.getElementById('quiz-container');
-        const resultsContainer = document.getElementById('results-container');
-        const restartButton = document.getElementById('restart-button');
-        const dynamicResultsContentEl = document.getElementById('dynamic-results-content');
-
-        // --- Funciones ---
-
-        /**
-         * Mezcla un array en el lugar (Algoritmo Fisher-Yates).
-         * @param {Array} array - El array a mezclar.
-         */
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Intercambio con desestructuración ES6
-            }
-        }
-
-        /**
-         * Inicia una nueva sesión de test.
-         * Selecciona un subconjunto aleatorio de preguntas de la lista principal.
-         */
-        function startNewTest() {
-            // --- PARÁMETROS PARA MODIFICAR ---
-            // Cambia este número para seleccionar una cantidad diferente de preguntas aleatorias
-            const numberOfQuestionsToShow = 10;
-            // ---------------------------------
-
-            // 1. Crea una copia de todas las preguntas para no modificar el array original
-            let availableQuestions = [...allQuestions];
-
-            // 2. Mezcla el array copiado
-            shuffleArray(availableQuestions);
-
-            // 3. Selecciona el número deseado de preguntas del array mezclado
-            // Asegura no pedir más preguntas de las disponibles
-            currentQuizQuestions = availableQuestions.slice(0, Math.min(numberOfQuestionsToShow, availableQuestions.length));
-
-            // Reinicia el estado del test
-            currentQuestionIndex = 0;
-            correctCount = 0;
-            incorrectCount = 0;
-            correctCountEl.textContent = `Correctas: ${correctCount}`;
-            incorrectCountEl.textContent = `Incorrectas: ${incorrectCount}`;
-            selectedOptionButton = null;
-            selectedOptions = []; // Limpia el array de selecciones múltiples
-
-            // Reinicia la UI
-            resultsContainer.classList.add('hidden');
-            quizContainer.classList.remove('hidden');
-            checkButton.classList.add('invisible');
-            nextButton.classList.add('invisible');
-
-            // Carga la primera pregunta si se seleccionaron preguntas
-            if (currentQuizQuestions.length > 0) {
-                loadQuestion();
-            } else {
-                // Maneja el caso donde no hay preguntas disponibles o seleccionadas
-                quizContainer.innerHTML = '<p class="text-center text-red-500">No hay preguntas disponibles para mostrar.</p>';
-            }
-        }
-
-
-        /**
-         * Carga la pregunta actual y sus opciones en la UI.
-         */
-        function loadQuestion() {
-            // Reinicia selecciones de la pregunta anterior
-            selectedOptionButton = null;
-            selectedOptions = [];
-
-            // Obtiene el objeto de la pregunta actual
-            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
-            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
-
-            // Actualiza texto de la pregunta y contador
-            questionTextEl.textContent = currentQuestion.question;
-            questionCounterEl.textContent = `Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}`;
-
-            // Muestra/oculta indicador de respuesta múltiple
-            multiAnswerIndicatorEl.classList.toggle('hidden', !isMultiAnswer);
-
-            // Limpia opciones y feedback anteriores
-            optionsAreaEl.innerHTML = '';
-            feedbackAreaEl.textContent = '';
-            // Usa clases de Tailwind para el feedback en lugar de .correct/.incorrect
-            feedbackAreaEl.className = 'mt-4 text-center font-medium h-6'; // Reinicia clases de feedback
-
-            // Oculta botones de acción inicialmente
-            checkButton.classList.add('invisible');
-            nextButton.classList.add('invisible');
-
-            // Crea y añade botones para cada opción
-            currentQuestion.options.forEach(option => {
-                const button = document.createElement('button');
-                // Extrae la letra de la opción (a, b, c, d, e)
-                const optionLetter = option.match(/^([a-e])\)/i)?.[1].toLowerCase();
-                button.textContent = option;
-                // Aplica clases Tailwind para estilo base y hover
-                button.classList.add('block', 'w-full', 'text-left', 'p-3', 'border', 'border-gray-300', 'rounded-lg', 'hover:bg-gray-100', 'transition', 'duration-150', 'ease-in-out');
-                // Almacena la letra de la opción en un data attribute para fácil verificación
-                button.dataset.option = optionLetter;
-                // Asigna la función manejadora de click
-                button.onclick = handleOptionSelect;
-                optionsAreaEl.appendChild(button);
-            });
-        }
-
-        /**
-         * Maneja el evento click en un botón de opción.
-         * Gestiona selecciones únicas y múltiples.
-         * @param {Event} event - El objeto del evento click.
-         */
-        function handleOptionSelect(event) {
-            const clickedButton = event.target;
-            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
-            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
-
-            // Remover clase 'selected' de todos los botones antes de aplicar la nueva selección
-            optionsAreaEl.querySelectorAll('button').forEach(btn => {
-                // Si no es multirespuesta, o si es multirespuesta pero no es el botón clickeado actualmente
-                 if (!isMultiAnswer || (isMultiAnswer && !selectedOptions.includes(btn) && btn !== clickedButton)) {
-                     btn.classList.remove('selected');
-                 }
-            });
-
-
-            if (isMultiAnswer) {
-                // Lógica para preguntas de respuesta múltiple
-                const index = selectedOptions.indexOf(clickedButton);
-                if (index > -1) {
-                    // Opción ya seleccionada, deselecciónala
-                    selectedOptions.splice(index, 1);
-                    clickedButton.classList.remove('selected'); // Remueve estilo de selección
-                } else if (selectedOptions.length < 2) {
-                    // Opción no seleccionada, y menos de 2 seleccionadas, selecciónala
-                    selectedOptions.push(clickedButton);
-                    clickedButton.classList.add('selected'); // Añade estilo de selección
-                }
-                // Muestra botón "Revisar" solo cuando se seleccionan exactamente 2 opciones
-                checkButton.classList.toggle('invisible', selectedOptions.length !== 2);
-            } else {
-                // Lógica para preguntas de respuesta única
-                // Deselecciona el botón previamente seleccionado, si existe
-                if (selectedOptionButton) {
-                    selectedOptionButton.classList.remove('selected');
-                }
-                // Selecciona el nuevo botón
-                selectedOptionButton = clickedButton;
-                selectedOptionButton.classList.add('selected'); // Añade estilo de selección
-                // Muestra el botón "Revisar" tan pronto se selecciona una opción
-                checkButton.classList.remove('invisible');
-            }
-        }
-
-        /**
-         * Verifica la(s) respuesta(s) seleccionada(s) contra la(s) correcta(s).
-         * Proporciona feedback visual y actualiza puntajes.
-         */
-        function checkAnswer() {
-            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
-            const isMultiAnswer = Array.isArray(currentQuestion.correctAnswer);
-            let isCorrect = false;
-
-            // Deshabilita todos los botones de opción después de verificar
-            optionsAreaEl.querySelectorAll('button').forEach(btn => {
-                btn.disabled = true;
-                // Mantiene la clase 'selected' por ahora para identificar elecciones del usuario
-            });
-
-            // --- Determina si la respuesta es correcta ---
-            if (isMultiAnswer) {
-                // Obtiene las letras de las opciones seleccionadas y las ordena
-                const selectedAnswers = selectedOptions.map(btn => btn.dataset.option).sort();
-                // Obtiene las respuestas correctas, clona y ordena para comparar
-                const correctAnswers = [...currentQuestion.correctAnswer].sort(); // Clona usando spread syntax
-                // Compara los arrays ordenados (como strings por simplicidad)
-                if (JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers)) {
-                    isCorrect = true;
-                }
-            } else {
-                // Verificación de respuesta única
-                const selectedAnswerLetter = selectedOptionButton?.dataset.option;
-                if (selectedAnswerLetter === currentQuestion.correctAnswer.toLowerCase()) {
-                    isCorrect = true;
-                }
-            }
-
-            // --- Actualiza contadores y mensaje de feedback ---
-            if (isCorrect) {
-                correctCount++;
-                feedbackAreaEl.textContent = '¡Correcto!';
-                feedbackAreaEl.classList.add('text-green-600'); // Usa clase Tailwind para color
-                feedbackAreaEl.classList.remove('text-red-600');
-            } else {
-                incorrectCount++;
-                // Formatea la(s) respuesta(s) correcta(s) para mostrar
-                const correctText = Array.isArray(currentQuestion.correctAnswer)
-                                    ? currentQuestion.correctAnswer.join(' y ').toUpperCase()
-                                    : currentQuestion.correctAnswer.toUpperCase();
-                feedbackAreaEl.textContent = `Incorrecto. Respuesta(s) correcta(s): ${correctText}`;
-                feedbackAreaEl.classList.add('text-red-600'); // Usa clase Tailwind para color
-                 feedbackAreaEl.classList.remove('text-green-600');
-            }
-
-            // Actualiza la visualización del puntaje
-            correctCountEl.textContent = `Correctas: ${correctCount}`;
-            incorrectCountEl.textContent = `Incorrectas: ${incorrectCount}`;
-
-            // --- Resalta opciones correctas e incorrectas visualmente usando clases CSS ---
-             const correctAnswersArray = isMultiAnswer ? currentQuestion.correctAnswer : [currentQuestion.correctAnswer.toLowerCase()];
-            optionsAreaEl.querySelectorAll('button').forEach(btn => {
-                const optionLetter = btn.dataset.option;
-                const wasSelectedByUser = isMultiAnswer ? selectedOptions.includes(btn) : btn === selectedOptionButton;
-                const isCorrectOption = correctAnswersArray.includes(optionLetter);
-
-                // Remueve el estilo de selección base primero
-                btn.classList.remove('selected');
-
-                if (isCorrectOption) {
-                    // Es una opción correcta, márcala con la clase 'correct'
-                    btn.classList.add('correct');
-                     if (wasSelectedByUser) {
-                         // Usuario seleccionó una opción correcta - añade clase para checkmark (opcional)
-                         btn.classList.add('selected-correct');
-                    }
-                } else if (wasSelectedByUser) {
-                    // Usuario seleccionó una opción incorrecta, márcala con la clase 'incorrect'
-                    btn.classList.add('incorrect');
-                }
-                // Otras opciones no seleccionadas e incorrectas permanecen con estilo por defecto (Tailwind)
-            });
-
-
-            // Oculta botón "Revisar" y muestra botón "Siguiente"
-            checkButton.classList.add('invisible');
-            nextButton.classList.remove('invisible');
-        }
-
-
-        /**
-         * Avanza a la siguiente pregunta o muestra los resultados finales.
-         */
-        function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < currentQuizQuestions.length) {
-                 // Rehabilita botones y limpia estilos de feedback para la siguiente pregunta
-                 optionsAreaEl.querySelectorAll('button').forEach(btn => {
-                     btn.disabled = false;
-                     btn.classList.remove('correct', 'incorrect', 'selected-correct'); // Limpia estilos de feedback
-                 });
-                loadQuestion();
-            } else {
-                showResults();
-            }
-        }
-
-        /**
-         * Muestra los resultados finales del test.
-         */
-        function showResults() {
-            // Genera el contenido HTML para la visualización de resultados
-            const resultsContent = `
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Test Rápido Completado!</h2>
-                <p class="text-xl text-gray-700 mb-2">Resultados (${currentQuizQuestions.length} preguntas):</p>
-                <p class="text-lg text-green-600 font-medium">Respuestas Correctas: ${correctCount}</p>
-                <p class="text-lg text-red-600 font-medium mb-6">Respuestas Incorrectas: ${incorrectCount}</p>
-            `;
-            // Establece el innerHTML del contenedor de resultados
-            dynamicResultsContentEl.innerHTML = resultsContent;
-            // Oculta el área del test y muestra el área de resultados
-            quizContainer.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-        }
-
-        // --- Event Listeners ---
-        checkButton.addEventListener('click', checkAnswer);
-        nextButton.addEventListener('click', nextQuestion);
-        restartButton.addEventListener('click', startNewTest); // Botón de reinicio en pantalla de resultados
-
-        // --- Inicialización ---
-        // Inicia el test automáticamente cuando la página carga
-        window.onload = startNewTest;
-
-    </script>
-</body>
-</html>
+    ];
+    
+    // Example of how to access a question:
+    // console.log(allQuestions[0].question);
+    // console.log(allQuestions[0].options);
+    // console.log(allQuestions[0].correctAnswer);
+    // console.log(allQuestions[0].points);
+    
