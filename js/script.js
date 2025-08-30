@@ -66,8 +66,9 @@ const allQuestions = [
             correctAnswer: "d",
             points: 1
         },
-    {
-            question: "7.- ¿Qué significa esta luz de advertencia en el panel de instrumentos?", // Image missing in text source
+   {
+            question: "7.- ¿Qué significa esta luz de advertencia en el panel de instrumentos?",
+            image: "img/pregunta_7.png",
             options: [
                 "a) Luces neblineras.",
                 "b) Intermitentes de advertencia de peligro.",
@@ -413,6 +414,7 @@ const allQuestions = [
         },
     {
             question: "38.- El auto azul circula a 70 km/h y el rojo a 90 km/h. ¿Dónde es más probable que sus conductores estimen el punto en que se producirá el encuentro de ambos vehículos? (Marque dos respuestas)", // Image missing in text source
+            image: "img/pregunta_38.png",
             options: [
                 "a) El conductor del auto rojo estima que dicho punto será el 3.",
                 "b) El conductor del auto rojo estima que dicho punto será el 2.",
@@ -1002,6 +1004,7 @@ const allQuestions = [
         },
     {
             question: "91.- ¿Qué debería hacer el conductor del auto señalado con la flecha?", // Image missing in text source
+            image: "img/pregunta_91.png",
             options: [
                 "a) Detenerse y esperar a que el peatón cruce.",
                 "b) Señalizar con la mano al peatón para que retroceda.",
@@ -1013,6 +1016,7 @@ const allQuestions = [
         },
     {
             question: "92.- ¿Cuáles son las 2 principales razones por las que no sería adecuado que usted adelantara al peatón en este momento? (Marque dos respuestas)", // Image missing in text source
+            image: "img/pregunta_92.png",
             options: [
                 "a) Podría ensuciar al peatón.",
                 "b) La calzada es angosta y el peatón podría desviarse inesperadamente hacia la derecha.",
@@ -1035,6 +1039,7 @@ const allQuestions = [
         },
     {
             question: "94.- En esta ocasión usted va conduciendo a 70 km/h. ¿Qué hace usted? (Marque dos respuestas)", // Image missing in text source
+            image: "img/pregunta_94.png",
             options: [
                 "a) Frena en seco.",
                 "b) Se desplaza hacia la izquierda.",
@@ -1090,6 +1095,7 @@ const allQuestions = [
         },
     {
             question: "99.- Mire el dibujo. ¿Cuál es el peligro al que usted debe estar más atento(a)?", // Image missing in text source
+            image: "img/pregunta_99.png",
             options: [
                 "a) El niño puede cruzar corriendo.", // Key says 'a'. Assumes image shows a child near an ice cream truck or similar situation.
                 "b) El vendedor de helados puede poner su vehículo en movimiento.",
@@ -1112,6 +1118,7 @@ const allQuestions = [
         },
     {
             question: "101.- Usted va conduciendo al lado de una fila de autos estacionados. De pronto ve una pelota rebotando en la calzada un poco más adelante. ¿Qué debería hacer usted?", // Image missing in text source
+            image: "img/pregunta_101.png",
             options: [
                 "a) Continuar a la misma velocidad, tocando la bocina.",
                 "b) Continuar a la misma velocidad, pero encendiendo y apagando sus luces delanteras.",
@@ -1158,6 +1165,7 @@ const allQuestions = [
         },
     {
             question: "105.- Usted está esperando en un cruce en T. El vehículo azul que se acerca desde la izquierda señaliza a la derecha. ¿Qué debería hacer usted?", // Image missing in text source
+            image: "img/pregunta_105.png",
             options: [
                 "a) Avanzar acelerando a fondo.",
                 "b) Ponerse en marcha antes de que el vehículo azul llegue al cruce.",
@@ -1180,6 +1188,7 @@ const allQuestions = [
         },
     {
             question: "107.- ¿A qué debe estar especialmente atento el conductor del vehículo indicado con la flecha? (Marque tres respuestas)", // Image missing in text source
+            image: "img/pregunta_107.png",
             options: [
                 "a) Irregularidades de la superficie de calzada.",
                 "b) Peatones que puedan aparecer sorpresivamente entre autos estacionados para cruzar.",
@@ -1193,6 +1202,7 @@ const allQuestions = [
         },
     {
             question: "108.- ¿Qué debería hacer el conductor del auto indicado con la flecha?", // Image missing in text source
+            image: "img/pregunta_108.png",
             options: [
                 "a) Hacer señas con la mano a los peatones que están esperando poder cruzar.",
                 "b) Pasar rápidamente por detrás del peatón que va cruzando la calzada.",
@@ -1204,6 +1214,7 @@ const allQuestions = [
         },
     {
             question: "109.- ¿Qué debería hacer el conductor del auto señalado con la flecha?", // Image missing in text source
+            image: "img/pregunta_109.png",
             options: [
                 "a) Retroceder para salir del cruce.",
                 "b) Esperar en el mismo lugar hasta tener luz verde.",
@@ -1215,6 +1226,7 @@ const allQuestions = [
         },
     {
             question: "110.- ¿Cuál es el principal peligro cuando usted sobrepasa al bus que está detenido en la parada?", // Image missing in text source
+            image: "img/pregunta_110.png",
             options: [
                 "a) Que usted debe ceder el paso al bus si éste se pone en marcha.",
                 "b) Que el auto que va adelante puede detenerse para ceder el paso a un peatón.",
@@ -1226,6 +1238,7 @@ const allQuestions = [
         },
     {
             question: "111.- ¿Qué significa la señal que está efectuando el camión?", // Image missing in text source
+            image: "img/pregunta_111.png",
             options: [
                 "a) El camión va a disminuir la velocidad y va a detenerse.",
                 "b) El conductor del camión le está indicando a usted que lo puede adelantar.",
@@ -1249,6 +1262,7 @@ const allQuestions = [
         },
     {
             question: "113.- ¿Hacia dónde es más importante que usted mire en este momento?", // Image missing in text source
+            image: "img/pregunta_113.png",
             options: [
                 "a) A",
                 "b) B",
@@ -1260,6 +1274,7 @@ const allQuestions = [
         },
     {
             question: "114.- En esta situación, ¿a cuáles 3 riesgos debe estar usted principalmente atento? (Marque tres respuestas)", // Image missing in text source
+            image: "img/pregunta_114.png",
             options: [
                 "a) Al ciclista que viene en sentido contrario.",
                 "b) Al tránsito en la intersección que hay más adelante.",
@@ -1273,6 +1288,7 @@ const allQuestions = [
         },
     {
             question: "115.- Usted va conduciendo a 70 km/h que es la velocidad máxima permitida en esta vía. ¿Qué hace en esta situación? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_115.png",
             options: [
                 "a) Está preparado para actuar ya que alguien puede salir corriendo a la calzada.",
                 "b) Está preparado para actuar ya que el bus puede ponerse en marcha.",
@@ -1284,6 +1300,7 @@ const allQuestions = [
         },
     {
             question: "116.- ¿Qué hace usted ante esta situación?", // Image missing in text source
+            image: "img/pregunta_116.png",
             options: [
                 "a) Hace señales a los peatones para que se alejen de la calzada.",
                 "b) Reduce su velocidad y continúa conduciendo.",
@@ -1361,6 +1378,7 @@ const allQuestions = [
         },
     {
             question: "123.- Las fotografías muestran una secuencia cronológica de imágenes. ¿Cuáles son las 2 principales causas por las que surge esta situación de peligro? (Marque dos respuestas)", // Image missing in text source
+            image: "img/pregunta_123.png",
             options: [
                 "a) Por adelantar en un lugar prohibido.",
                 "b) Por mala visibilidad.",
@@ -1526,6 +1544,7 @@ const allQuestions = [
         },
     {
             question: "138.- Usted está en una calle de un solo sentido de tránsito y desea virar a la izquierda. ¿Cuál o cuáles de las siguientes afirmaciones es(son) correcta(s)? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_138.png",
             options: [
                 "a) Usted está bien situado para virar a la izquierda.", // Assumes car is in leftmost lane.
                 "b) Si después de virar usted volverá a virar nuevamente a la izquierda en el siguiente cruce, lo mejor es que se mantenga en la pista izquierda de la calle hacia la cual está virando.", // Correct lane positioning for consecutive turns.
@@ -1537,6 +1556,7 @@ const allQuestions = [
         },
     {
             question: "139.- ¿En cuál o cuáles de las siguientes situaciones puede usted virar a la izquierda sin que siempre deba detenerse antes?", // Image missing in text source
+            image: "img/pregunta_139.png",
             options: [
                 // Assuming images show: a) Green arrow left, b) Flashing yellow arrow left, c) Solid green light (yield), d) Red light.
                 "a) Imagen A", // Green arrow gives right of way.
@@ -1549,6 +1569,7 @@ const allQuestions = [
         },
     {
             question: "140.- ¿Frente a cuál o cuáles de las siguientes señales e indicaciones del semáforo debe usted detenerse siempre? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_140.png",
             options: [
                 // Assuming images show: a) Flashing red light, b) Red light, c) Yellow light, d) PARE sign.
                 "a) Imagen A", // Flashing red acts like a stop sign.
@@ -1571,6 +1592,7 @@ const allQuestions = [
         },
     {
             question: "142.- Usted va detrás de un camión articulado que va a doblar a la derecha hacia una vía angosta. ¿Qué debe hacer usted?", // Image missing in text source
+            image: "img/pregunta_142.png",
             options: [
                 "a) Desplazarse rápidamente hacia la pista adyacente y sobrepasarlo.",
                 "b) Tocar la bocina para advertir su presencia.",
@@ -1582,6 +1604,7 @@ const allQuestions = [
         },
     {
             question: "143.- ¿Cómo señaliza usted con el brazo cuando va a virar hacia la derecha?", // Image missing in text source
+            image: "img/pregunta_143.png",
             options: [
                 // Assuming images show standard arm signals: a) Arm straight out, b) Arm up, c) Arm down.
                 "a) Imagen A",
@@ -1593,6 +1616,7 @@ const allQuestions = [
         },
     {
             question: "144.- ¿Cuál señalización con el brazo del conductor de un vehículo que va adelante le indica que va a virar a la izquierda?", // Image missing in text source
+            image: "img/pregunta_144.png",
             options: [
                 // Assuming images show standard arm signals: a) Arm straight out, b) Arm up, c) Arm down.
                 "a) Imagen A", // Arm straight out.
@@ -1616,6 +1640,7 @@ const allQuestions = [
         },
     {
             question: "146.- Usted va conduciendo su vehículo a 90 km/h que es la velocidad máxima permitida en esa vía. ¿Qué hace usted si a pesar de todo un vehículo desea adelantarlo? (Marque dos respuestas)", // Image missing in text source
+            image: "img/pregunta_146.png",
             options: [
                 "a) Conduce lo más a la derecha posible.",
                 "b) Se desplaza hacia la berma y circula por ella.",
@@ -1639,6 +1664,7 @@ const allQuestions = [
         },
     {
             question: "148.- Usted desea adelantar. ¿Cuál o cuáles de las siguientes afirmaciones es(son) verdadera(s)? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_148.png",
             options: [
                 "a) El camión tiene la obligación de correrse hacia la berma para dejarle a usted más espacio.",
                 "b) El auto que viene en sentido contrario tiene la obligación de correrse a la berma para aumentar la seguridad.",
@@ -1650,6 +1676,7 @@ const allQuestions = [
         },
     {
             question: "149.- Usted ha comenzado a adelantar. El auto de la derecha va a aproximadamente 80 km/h. Por su espejo retrovisor usted ve otro auto que tiene intención de adelantar. ¿Qué hace usted?", // Image missing in text source
+            image: "img/pregunta_149.png",
             options: [
                 "a) Frena ligeramente y vuelve a la pista derecha.", // Abort overtake if unsafe or another car is coming fast.
                 "b) Acelera y adelanta, porque el auto que usted adelanta tiene la obligación de reducir la velocidad.",
@@ -1727,6 +1754,7 @@ const allQuestions = [
         },
     {
             question: "156.- ¿En cuál o cuáles situaciones el vehículo está mal estacionado? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_156.png",
             options: [
                 // Assuming images show: a) Parking against traffic flow, b) Parking on a crosswalk, c) Correct parallel parking, d) Parking too far from curb.
                 "a) Imagen A",
@@ -1739,6 +1767,7 @@ const allQuestions = [
         },
     {
             question: "157.- ¿En cuál o cuáles de las siguientes situaciones el conductor se ha detenido correctamente para recoger un pasajero? (Marque la o las respuesta(s) correcta(s))", // Image missing in text source
+            image: "img/pregunta_157.png",
             options: [
                 // Assuming images show: a) Double parked, b) Stopped correctly at curb away from intersection/bus stop, c) Stopped in bus stop, d) Stopped correctly at curb away from intersection/bus stop.
                 "a) Imagen A",
@@ -1842,6 +1871,7 @@ const allQuestions = [
         },
     {
             question: "166.- ¿A cuántos metros de una esquina es lo más cerca que usted puede estacionar?", // Image missing in text source
+            image: "img/pregunta_166.png",
             options: [
                 "a) 5 metros",
                 "b) 10 metros", // Standard distance in many regulations.
@@ -1876,6 +1906,7 @@ const allQuestions = [
         },
     {
             question: "169.- ¿Qué hace usted ante esta situación?", // Image missing in text source
+            image: "img/pregunta_169.png",
             options: [
                 "a) Continúa a la misma velocidad.",
                 "b) Toca la bocina.",
@@ -1887,6 +1918,7 @@ const allQuestions = [
         },
     {
             question: "170.- Usted conduce a 90 km/h cuando la vía es obstruida sorpresivamente por un camión que está virando a la izquierda. ¿Qué es lo primero que hace usted?", // Image missing in text source
+            image: "img/pregunta_170.png",
             options: [
                 "a) Hace señales de luces y toca la bocina.",
                 "b) Frena firmemente.", // Immediate reaction to avoid collision.
@@ -1953,6 +1985,7 @@ const allQuestions = [
         },
     {
             question: "176.- Un bus está detenido en una parada delante suyo. El intermitente izquierdo del bus está parpadeando. ¿Qué hace usted?", // Image missing in text source
+            image: "img/pregunta_176.png",
             options: [
                 "a) Hace parpadear sus luces delanteras y disminuye la velocidad.",
                 "b) Toca la bocina y continúa.",
@@ -2063,6 +2096,7 @@ const allQuestions = [
         },
     {
             question: "186.- Usted va detrás de un camión articulado que se aproxima a un cruce. Su conductor señaliza hacia la derecha pero el vehículo se desplaza hacia la izquierda. ¿Qué debe hacer usted?", // Image missing in text source
+            image: "img/pregunta_186.png",
             options: [
                 "a) Advertirle al conductor acerca de su señal equivocada.",
                 "b) Esperar detrás del camión.", // Truck needs space for wide turn.
@@ -2118,6 +2152,7 @@ const allQuestions = [
         },
     {
             question: "191.- En un cruce hay peatones atravesando la calle hacia la cual usted está virando. ¿Qué debe hacer usted?", // Image missing in text source
+            image: "img/pregunta_191.png",
             options: [
                 "a) Hacerles señas con la mano para que continúen.",
                 "b) Tocar la bocina para hacerles notar que usted está ahí.",
@@ -2129,6 +2164,7 @@ const allQuestions = [
         },
     {
             question: "192.- En un cruce hay peatones atravesando la calle hacia la cual usted está virando. ¿Qué hace usted?", // Image missing in text source
+            image: "img/pregunta_92.png",
             options: [
                 "a) Espera permitiéndoles que crucen.", // Pedestrians have priority.
                 "b) Continúa ya que usted tiene el derecho preferente de paso.",
@@ -2151,6 +2187,7 @@ const allQuestions = [
         },
     {
             question: "194.- Cuando conduce en la ciudad ¿por qué razón debería usted tener cuidado al cruzarse con un bus que se encuentra detenido en una parada?",
+            image: "img/pregunta_94.png",
             options: [
                 "a) Porque el bus puede estar en pana.",
                 "b) Porque el bus puede ponerse en movimiento repentinamente.",
@@ -2272,6 +2309,7 @@ const allQuestions = [
             },
     {
                 question: "205.- ¿Qué significa la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_205.png",
                 options: [
                     "a) Que se acerca a una zona donde es frecuente la presencia de niños.",
                     "b) Que se acerca a un cruce de peatones.",
@@ -2602,6 +2640,7 @@ const allQuestions = [
             },
     {
                 question: "235.- ¿Qué significa esta señal?",
+                image: "img/pregunta_235.png",
                 options: [
                     "a) Dirección obligada.",
                     "b) No virar a la izquierda.",
@@ -2613,6 +2652,7 @@ const allQuestions = [
             },
     {
                 question: "236.- ¿Qué significa esta señal?",
+                image: "img/pregunta_236.png",
                 options: [
                     "a) Cruce ferroviario.",
                     "b) Proximidad de postes de alta tensión.",
@@ -2679,6 +2719,7 @@ const allQuestions = [
             },
     {
                 question: "242.- ¿Qué significa la demarcación que se ve en la fotografía?",
+                image: "img/pregunta_242.png",
                 options: [
                     "a) Que es una parada de locomoción colectiva.",
                     "b) Que es una pista prioritaria para vehículos de emergencia.",
@@ -2701,6 +2742,7 @@ const allQuestions = [
             },
     {
                 question: "244.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_244.png",
                 options: [
                     "a) Que usted no debe virar a la derecha.",
                     "b) Que usted no debe virar a la izquierda.",
@@ -2712,6 +2754,7 @@ const allQuestions = [
             },
     {
                 question: "245.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_245.png",
                 options: [
                     "a) Que usted debe detenerse.",
                     "b) Que usted debe ceder el paso.",
@@ -2723,6 +2766,7 @@ const allQuestions = [
             },
     {
                 question: "246.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_246.png",
                 options: [
                     "a) Que se acerca a un cruce donde tiene preferencia.",
                     "b) Que se acerca a un cruce donde carece de preferencia.",
@@ -2734,6 +2778,7 @@ const allQuestions = [
             },
     {
                 question: "247.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_247.png",
                 options: [
                     "a) Que se acerca a un cruce de calles.",
                     "b) Que se acerca a un cruce ferroviario.",
@@ -2745,6 +2790,7 @@ const allQuestions = [
             },
     {
                 question: "248.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_248.png",
                 options: [
                     "a) Que se acerca a un sector de curvas.",
                     "b) Que se acerca a un pavimento resbaladizo.",
@@ -2756,6 +2802,7 @@ const allQuestions = [
             },
     {
                 question: "249.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_249.png",
                 options: [
                     "a) Que se acerca a un sector de curvas.",
                     "b) Que se acerca a un camino sinuoso.",
@@ -2767,6 +2814,7 @@ const allQuestions = [
             },
     {
                 question: "250.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_250.png",
                 options: [
                     "a) Que se acerca a un sector donde es frecuente la presencia de animales.",
                     "b) Que se acerca a un zoológico.",
@@ -2778,6 +2826,7 @@ const allQuestions = [
             },
     {
                 question: "251.- ¿Qué le indica la señal de tránsito que se observa en la fotografía?",
+                image: "img/pregunta_251.png",
                 options: [
                     "a) Que se acerca a un lugar donde pueden haber peatones en la vía.",
                     "b) Que se acerca a un cruce de peatones.",
@@ -2800,6 +2849,7 @@ const allQuestions = [
             },
     {
                 question: "253.- ¿Qué indica la demarcación que se observa en la fotografía?",
+                image: "img/pregunta_253.png",
                 options: [
                     "a) Zona de estacionamiento permitido.",
                     "b) Zona de estacionamiento exclusivo para residentes.",
@@ -2822,6 +2872,7 @@ const allQuestions = [
             },
     {
                 question: "255.- ¿Qué indica la demarcación de centro de calzada que se muestra en la figura?",
+                image: "img/pregunta_255.png",
                 options: [
                     "a) Que no puede ser traspasada por un conductor que viene por la pista A.",
                     "b) Que no puede ser traspasada por un conductor que viene por la pista B.",
@@ -2833,6 +2884,7 @@ const allQuestions = [
             },
     {
                 question: "256.- ¿Qué indica la demarcación que se muestra en la figura?",
+                image: "img/pregunta_256.png",
                 options: [
                     "a) Que existe un cruce peligroso.",
                     "b) Que existe un cruce cebra.",
@@ -2844,6 +2896,7 @@ const allQuestions = [
             },
     {
                 question: "257.- ¿Qué indica la demarcación que se muestra en la figura?",
+                image: "img/pregunta_257.png",
                 options: [
                     "a) Una parada de buses.",
                     "b) Una zona achurada.",
@@ -2855,6 +2908,7 @@ const allQuestions = [
             },
     {
                 question: "258.- ¿Qué indica la demarcación que se muestra en la figura?",
+                image: "img/pregunta_258.png",
                 options: [
                     "a) Una ciclovía.",
                     "b) Una pista exclusiva para buses.",
@@ -2866,6 +2920,7 @@ const allQuestions = [
             },
     {
                 question: "259.- ¿Qué indica la demarcación que se muestra en la figura?",
+                image: "img/pregunta_259.png",
                 options: [
                     "a) Que se acerca a un cruce ferroviario.",
                     "b) Que se acerca a un cruce T.",
@@ -2899,6 +2954,7 @@ const allQuestions = [
             },
     {
                 question: "262.- ¿Qué indica la demarcación que se muestra en la figura?",
+                image: "img/pregunta_262.png",
                 options: [
                     "a) Que es una zona de estacionamiento permitido.",
                     "b) Que es una zona de parada de buses.",
@@ -2910,6 +2966,7 @@ const allQuestions = [
             },
     {
                 question: "263.- El vehículo indicado con la flecha se encuentra detenido sobre una zona achurada esperando poder efectuar un viraje en U, ¿es esto correcto?",
+                image: "img/pregunta_263.png",
                 options: [
                     "a) Sí, la zona achurada sólo separa sentidos de circulación.",
                     "b) Sí, siempre que la zona achurada no esté reforzada con tachas o tachones reflectantes.",
@@ -2921,6 +2978,7 @@ const allQuestions = [
             },
     {
                 question: "264.- ¿Qué indican las tachas rojas?",
+                image: "img/pregunta_264.png",
                 options: [
                     "a) La separación de pistas de circulación en un mismo sentido.",
                     "b) La línea de borde de calzada.",
@@ -2932,6 +2990,7 @@ const allQuestions = [
             },
     {
                 question: "265.- ¿Qué indican las tachas amarillas?",
+                image: "img/pregunta_265.png",
                 options: [
                     "a) La separación de pistas de circulación en un mismo sentido.",
                     "b) La línea de borde de calzada.",
@@ -3109,6 +3168,7 @@ const allQuestions = [
     ];
     
 
+
 // --- Variables del Estado del Quiz ---
 let currentQuizQuestions = []; // Preguntas seleccionadas para esta ronda
 let currentQuestionIndex = 0;
@@ -3122,6 +3182,7 @@ const startButton = document.getElementById('start-button');
 const questionCounterEl = document.getElementById('question-counter');
 const scoreEl = document.getElementById('score');
 const questionTextEl = document.getElementById('question-text');
+const questionAreaEl = document.getElementById('question-area'); // Contenedor para texto e imagen
 const optionsAreaEl = document.getElementById('options-area');
 const feedbackAreaEl = document.getElementById('feedback-area');
 const checkButton = document.getElementById('check-button'); // Nuevo botón Revisar
@@ -3172,7 +3233,26 @@ function loadQuestion() {
     selectedOptionButton = null; // Resetear selección
     selectedOptions = []; // Limpiar array de múltiples selecciones
     const currentQuestion = currentQuizQuestions[currentQuestionIndex];
-    questionTextEl.textContent = currentQuestion.question;
+
+    // Limpia el área de la pregunta
+    questionAreaEl.innerHTML = '';
+
+    // Añade el texto de la pregunta
+    const questionText = document.createElement('p');
+    questionText.id = 'question-text';
+    questionText.className = 'text-lg text-gray-700 font-medium mb-4';
+    questionText.textContent = currentQuestion.question;
+    questionAreaEl.appendChild(questionText);
+
+    // Si la pregunta tiene una imagen, la añade
+    if (currentQuestion.image) {
+        const img = document.createElement('img');
+        img.src = currentQuestion.image;
+        img.alt = `Imagen para la pregunta ${currentQuestionIndex + 1}`;
+        img.className = 'mt-4 rounded-lg mx-auto'; // Estilos para la imagen
+        questionAreaEl.appendChild(img);
+    }
+    
     optionsAreaEl.innerHTML = '';
     feedbackAreaEl.textContent = '';
     feedbackAreaEl.className = 'mt-4 text-center font-medium h-6'; // Resetear clases feedback
@@ -3278,6 +3358,8 @@ function checkAnswer() {
 function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < currentQuizQuestions.length) {
+        // Habilita los botones para la siguiente pregunta
+        optionsAreaEl.querySelectorAll('button').forEach(btn => btn.disabled = false);
         loadQuestion();
     } else {
         showResults();
@@ -3303,7 +3385,10 @@ function showResults() {
 // --- Event Listeners ---
 checkButton.addEventListener('click', checkAnswer);
 nextButton.addEventListener('click', nextQuestion);
-restartButton.addEventListener('click', startNewQuiz); 
+// Asegúrate de que el botón de reinicio en la pantalla de resultados tenga el id 'restart-button'
+if (restartButton) {
+    restartButton.addEventListener('click', startNewQuiz); 
+}
 
 // Botón "Comenzar de nuevo" (siempre visible)
 startOverButton.addEventListener('click', () => {
@@ -3314,11 +3399,17 @@ startOverButton.addEventListener('click', () => {
 });
 
 // Botón de inicio "Comenzar Examen"
-startButton.addEventListener('click', startNewQuiz);
+if (startButton) {
+    startButton.addEventListener('click', startNewQuiz);
+}
 
 // --- Inicialización ---
 window.onload = () => {
-    quizContainer.classList.add('hidden');
-    resultsContainer.classList.add('hidden');
-    startScreen.classList.remove('hidden');
+    // Esta lógica podría estar en `examen.html` en lugar de aquí.
+    // Si este script es solo para `quiz.html`, puedes quitar el manejo de la pantalla de inicio.
+    if(quizContainer && resultsContainer && startScreen) {
+        quizContainer.classList.add('hidden');
+        resultsContainer.classList.add('hidden');
+        startScreen.classList.remove('hidden');
+    }
 };
